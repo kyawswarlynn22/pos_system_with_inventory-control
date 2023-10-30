@@ -3,27 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Damage;
+use App\Models\Product;
 use App\Models\Usage;
-use App\Models\Warehouse;
 use Illuminate\Http\Request;
 
-class DamageController extends Controller
+class UsageContorller extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $wareProductListClass = new Usage();
-        $wareProductList = $wareProductListClass->pendinglist();
-        $DamageProductListClass = new Damage();
-        $DamageProductList = $DamageProductListClass->pendinglist();
-        return view(
-            'Pos.warehouseproductpending',[
-                'productData' => $wareProductList,
-                'damageData' => $DamageProductList,
-            ]
-        );
+        $usageanddamageListClass = new Damage();
+        $usageListClass = new Usage();
+        $usageList = $usageListClass->usageList();
+        $damageList = $usageanddamageListClass->damageList();
+
+        return view('Pos.useageanddamageList',[
+            'usageList' => $usageList,
+            'damageList' => $damageList,
+        ]);
     }
 
     /**
@@ -31,7 +30,11 @@ class DamageController extends Controller
      */
     public function create()
     {
-        //
+        $productListClass = new Product();
+        $productList = $productListClass->getProduts();
+        return view('Pos.addandsubstract', [
+            'productData' => $productList,
+        ]);
     }
 
     /**
@@ -39,9 +42,9 @@ class DamageController extends Controller
      */
     public function store(Request $request)
     {
-        $storeproductClass = new Damage();
+        $storeproductClass = new Usage();
         $storeproduct = $storeproductClass->storependingList($request);
-        return redirect('/warehouseadjustment');
+        return redirect('/usageproduct');
     }
 
     /**
@@ -65,7 +68,7 @@ class DamageController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $updateStockClass = new Damage();
+        $updateStockClass = new Usage();
         $updateStock = $updateStockClass->updateStockCount($request, $id);
         return back();
     }
@@ -75,7 +78,7 @@ class DamageController extends Controller
      */
     public function destroy(string $id)
     {
-        $delProductPending = Damage::find($id);
+        $delProductPending = Usage::find($id);
         if ($delProductPending) {
             $delProductPending->delete();
         }

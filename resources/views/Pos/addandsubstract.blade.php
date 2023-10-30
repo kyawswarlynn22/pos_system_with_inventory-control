@@ -1,12 +1,12 @@
 @extends('layout.sidebarandnav')
 
-@section('title', 'Product List');
+@section('title', 'Add usage and damage');
 @section('body')
-    <p class=" text-2xl">Add warehouse usage and damage products</p>
+    <p class=" text-2xl">Add usage and damage products</p>
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
         <span class=" text-xl ">Add Usage</span>
-        <form action="/warehouseadjustment" method="post">
+        <form action="/usageproduct" method="post">
             @csrf
             <div class="flex space-x-3 p-5 w-full justify-items-center items-center">
                 <div class="mb-6 w-full">

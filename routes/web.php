@@ -28,6 +28,7 @@ use App\Http\Controllers\StockAdjustController;
 use App\Http\Controllers\SubcontrollerController;
 use App\Http\Controllers\TakeoutController;
 use App\Http\Controllers\UpdateprofileController;
+use App\Http\Controllers\UsageContorller;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\WarehousePurchaseController;
@@ -133,6 +134,8 @@ Route::middleware('loginCheck')->group(function () {
     Route::resource('cashthb', CashThbController::class);
 
     Route::resource('warehousepurchase', WarehousePurchaseController::class);
+
+    Route::resource('usageproduct',UsageContorller::class);
 
     Route::resource('damageproduct', DamageController::class);
 

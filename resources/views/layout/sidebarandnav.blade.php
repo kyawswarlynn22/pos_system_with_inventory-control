@@ -293,7 +293,41 @@
                         </li>
                     </ul>
                 </li>
-             
+                <li>
+                    <button type="button"
+                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                        aria-controls="usage" data-collapse-toggle="usage">
+                        <svg width="24" height="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" stroke="#6b7280" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="4">
+                                <path d="m13 8l-7 6l7 7" />
+                                <path
+                                    d="M6 14h22.994c6.883 0 12.728 5.62 12.996 12.5c.284 7.27-5.723 13.5-12.996 13.5H11.998" />
+                            </g>
+                        </svg>
+                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Usage and Damage</span>
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+                    <ul id="usage" class="hidden py-2 space-y-2">
+                        <li>
+                            <a href="/usageproduct/create"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add Usage and Damage</a>
+                        </li>
+                        <li>
+                            <a href="/damageproduct"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Usage and Damage Pending List</a>
+                        </li>
+                        <li>
+                            <a href="/usageproduct"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Usage and Damage
+                                List</a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"

@@ -1,6 +1,6 @@
 @extends('layout.sidebarandnav')
 
-@section('title', 'Product List');
+@section('title', 'Pending List');
 @section('body')
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
         <p class=" text-xl py-3">Usage Product Pending Lists</p>
@@ -53,7 +53,7 @@
                         <td class="px-6 text-center py-4">
                             {{ $product->stock }}
                         </td>
-                        <form action="/warehouseadjustment/{{ $product->w_product_id }}" method="POST">
+                        <form action="/usageproduct/{{ $product->w_product_id }}" method="POST">
                             @csrf
                             @method('PUT')
                             <input type="text" name="stock" value="{{ $product->stock }}" hidden>
@@ -64,7 +64,7 @@
                                     Accept
                                 </button>
                         </form>
-                        <form action="/warehouseadjustment/{{ $product->id }}" method="post">
+                        <form action="/usageproduct/{{ $product->id }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button class="px-5 rounded-md py-1 bg-red-500">
