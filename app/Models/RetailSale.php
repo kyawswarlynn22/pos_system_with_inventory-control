@@ -160,7 +160,7 @@ class RetailSale extends Model implements Auditable
 
     public function getProduct()
     {
-        return Product::where('quantity', '>', 0)->get();
+        return Product::where('quantity', '>', 0)->where('del_flg','0')->get();
     }
 
     public function cashSaleDel($id)

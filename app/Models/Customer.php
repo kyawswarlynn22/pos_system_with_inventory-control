@@ -32,6 +32,7 @@ class Customer extends Model implements Auditable
 
     public function customerUpdate($request, $id)
     {
+        
         $customer = Customer::find($id);
         if ($customer) {
             $customer->update([

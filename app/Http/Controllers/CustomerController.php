@@ -73,11 +73,7 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validateData = $request->validate([
-            'cus_name' => 'required|unique:customers',
-            'phone' => 'required',
-            'address' => 'required'
-        ]);
+       
         $customerUpdateClass = new Customer();
         $customerUpdate = $customerUpdateClass->customerUpdate($request,$id);
         return redirect('/customer');
