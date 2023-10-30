@@ -139,90 +139,7 @@
                         <span class="ml-3">Serial</span>
                     </a>
                 </li>
-                <li>
-                    <button type="button"
-                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                        aria-controls="wpurchase" data-collapse-toggle="wpurchase">
-                        <svg width="24" height="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
-                                d="M8.038 16.341h31.925a3.537 3.537 0 0 1 3.537 3.537v18.986a3.538 3.538 0 0 1-3.538 3.538H8.037A3.537 3.537 0 0 1 4.5 38.865V19.88a3.538 3.538 0 0 1 3.538-3.538Z" />
-                            <rect width="4.126" height="4.127" x="19.874" y="19.353" fill="none"
-                                stroke="#000000" stroke-linecap="round" stroke-linejoin="round" rx="2.063" />
-                            <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
-                                d="M35.367 19.353h0a2.063 2.063 0 0 1 2.063 2.063h0a2.063 2.063 0 0 1-2.063 2.064h0a2.063 2.063 0 0 1-2.063-2.064h0a2.063 2.063 0 0 1 2.063-2.063Zm-13.473-7.141a6.612 6.612 0 1 1 13.224 0m-13.224 0v4.15m13.224-4.15v3.913m-22.487-3.331a6.612 6.612 0 0 1 10.432-5.4m-10.432 5.4v3.262M8.13 21.842a2.063 2.063 0 1 1 4.126 0m-.001 14.897a2.063 2.063 0 1 1-4.126 0m4.126 0V21.84m-4.125.002V36.74" />
-                        </svg>
-                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Warehouse Purchase</span>
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="m1 1 4 4 4-4" />
-                        </svg>
-                    </button>
-                    <ul id="wpurchase" class="hidden py-2 space-y-2">
-                        <li>
-                            <a href="/warehousepurchase/create"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                               Add Purchase
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/warehousepurchase"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Warehouse Purchase List
-                             
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <button type="button"
-                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                        aria-controls="warehouse" data-collapse-toggle="warehouse">
-                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <g fill="none" stroke="#949494" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2">
-                                <path d="M3 21V8l9-4l9 4v13" />
-                                <path d="M13 13h4v8H7v-6h6" />
-                                <path d="M13 21v-9a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3" />
-                            </g>
-                        </svg>
-                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Warehouse</span>
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="m1 1 4 4 4-4" />
-                        </svg>
-                    </button>
-                    <ul id="warehouse" class="hidden py-2 space-y-2">
-                        <li>
-                            <a href="/warehouse/create"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add
-                                Product</a>
-                        </li>
-                        <li>
-                            <a href="/warehouse"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                                Product List</a>
-                        </li>
-                        <li>
-                            <a href="/warehouseadjustment"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Pending
-                                Product</a>
-                        </li>
-                        <li>
-                            <a href="/warehouseadjustment/create"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Stock
-                                Usage and Damage
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/damageproduct"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                                Usage and Damage List
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
+                           <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                         aria-controls="purchase" data-collapse-toggle="purchase">
@@ -376,34 +293,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <button type="button"
-                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                        aria-controls="stocktakeout" data-collapse-toggle="stocktakeout">
-                        <svg width="24" height="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <g fill="#6b7280">
-                                <path d="M27.707 7.707a1 1 0 0 0-1.414-1.414L24 8.586l-2.293-2.293a1 1 0 1 0-1.414 1.414L22.586 10l-2.293 2.293a1 1 0 0 0 1.414 1.414L24 11.414l2.293 2.293a1 1 0 1 0 1.414-1.415L25.414 10l2.293-2.293Zm6.242 24.477a1 1 0 0 1-.633 1.265l-4.5 1.5a1 1 0 0 1-.632-1.898l4.5-1.5a1 1 0 0 1 1.265.633Z"/>
-                                <path fill-rule="evenodd" d="M6.684 26.449L10 27.554V36a1 1 0 0 0 .673.945l12.992 4.497a.99.99 0 0 0 .637.011l.014-.004l.015-.005l12.996-4.499A1 1 0 0 0 38 36v-8.446l3.316-1.105a1 1 0 0 0 .465-1.574l-4-5a1 1 0 0 0-.456-.32l-12.998-4.5a1 1 0 0 0-.654 0l-12.998 4.5a.999.999 0 0 0-.456.32l-4 5a1 1 0 0 0 .465 1.574Zm14.635 4.124l1.681-2.4v10.923l-11-3.808V28.22l8.184 2.728a1 1 0 0 0 1.135-.376ZM14.057 20.5L24 23.942l9.943-3.442L24 17.058L14.057 20.5Zm12.624 10.073L25 28.174v10.923l11-3.808V28.22l-8.184 2.728a1 1 0 0 1-1.135-.376ZM11.34 21.676l-2.663 3.329l5.511 1.837l5.92 1.973l2.313-3.303l-.135-.047l-10.946-3.79Zm27.983 3.329l-2.663-3.33l-11.081 3.837l2.313 3.303l11.431-3.81Z" clip-rule="evenodd"/>
-                            </g>
-                        </svg>
-                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Stock Takeout</span>
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="m1 1 4 4 4-4" />
-                        </svg>
-                    </button>
-                    <ul id="stocktakeout" class="hidden py-2 space-y-2">
-                        <li>
-                            <a href="/stocktakeout/create"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Stock Takeout</a>
-                        </li>
-                        <li>
-                            <a href="/stocktakeout"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Stock Takeout List</a>
-                        </li>
-                    </ul>
-                </li>
+             
                 <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
