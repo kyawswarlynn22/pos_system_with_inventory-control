@@ -1,29 +1,22 @@
 <!doctype html>
 <html>
+@php
+    $logo = session()->get('logo');
+    $business_name = session()->get('business_name');
+@endphp
 
 <head>
 
-    @php
-        $logo = session()->get('logo');
-        $business_name = session()->get('business_name');
-    @endphp
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="icon" href="{{ $logo }}" sizes="16x16" type="image/png/jpeg">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js" defer></script>
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/31104486ca.js" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
- 
-
-
-    <title>@yield('title')</title>
+    <title>Add Stock Takeout</title>
 
 </head>
 
@@ -32,7 +25,7 @@
     <link rel="icon" href="{{ $logo }}" sizes="16x16" type="image/png/jpeg">
     <!-- drawer component -->
     <aside id="drawer-navigation"
-        class="fixed top-0 left-0 z-40 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800"
+        class="fixed top-0 left-0 z-40 w-64 pr-4 pt-4 h-screen overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800"
         tabindex="-1" aria-labelledby="drawer-navigation-label">
         <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Menu
         </h5>
@@ -46,7 +39,7 @@
             </svg>
             <span class="sr-only">Close menu</span>
         </button>
-        <div class="py-4 overflow-y-auto">
+        <div class=" overflow-y-auto">
             <ul class="space-y-2 font-medium">
                 @php
                     $userRole = Session::get('userRole');
@@ -139,7 +132,90 @@
                         <span class="ml-3">Serial</span>
                     </a>
                 </li>
-                           <li>
+                <li>
+                    <button type="button"
+                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                        aria-controls="wpurchase" data-collapse-toggle="wpurchase">
+                        <svg width="24" height="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                d="M8.038 16.341h31.925a3.537 3.537 0 0 1 3.537 3.537v18.986a3.538 3.538 0 0 1-3.538 3.538H8.037A3.537 3.537 0 0 1 4.5 38.865V19.88a3.538 3.538 0 0 1 3.538-3.538Z" />
+                            <rect width="4.126" height="4.127" x="19.874" y="19.353" fill="none"
+                                stroke="#000000" stroke-linecap="round" stroke-linejoin="round" rx="2.063" />
+                            <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                d="M35.367 19.353h0a2.063 2.063 0 0 1 2.063 2.063h0a2.063 2.063 0 0 1-2.063 2.064h0a2.063 2.063 0 0 1-2.063-2.064h0a2.063 2.063 0 0 1 2.063-2.063Zm-13.473-7.141a6.612 6.612 0 1 1 13.224 0m-13.224 0v4.15m13.224-4.15v3.913m-22.487-3.331a6.612 6.612 0 0 1 10.432-5.4m-10.432 5.4v3.262M8.13 21.842a2.063 2.063 0 1 1 4.126 0m-.001 14.897a2.063 2.063 0 1 1-4.126 0m4.126 0V21.84m-4.125.002V36.74" />
+                        </svg>
+                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Warehouse Purchase</span>
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+                    <ul id="wpurchase" class="hidden py-2 space-y-2">
+                        <li>
+                            <a href="/warehousepurchase/create"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                               Add Purchase
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/warehousepurchase"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Warehouse Purchase List
+                             
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <button type="button"
+                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                        aria-controls="warehouse" data-collapse-toggle="warehouse">
+                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" stroke="#949494" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2">
+                                <path d="M3 21V8l9-4l9 4v13" />
+                                <path d="M13 13h4v8H7v-6h6" />
+                                <path d="M13 21v-9a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3" />
+                            </g>
+                        </svg>
+                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Warehouse</span>
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+                    <ul id="warehouse" class="hidden py-2 space-y-2">
+                        <li>
+                            <a href="/warehouse/create"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add
+                                Product</a>
+                        </li>
+                        <li>
+                            <a href="/warehouse"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                Product List</a>
+                        </li>
+                        <li>
+                            <a href="/warehouseadjustment"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Pending
+                                Product</a>
+                        </li>
+                        <li>
+                            <a href="/warehouseadjustment/create"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Stock
+                                Usage and Damage
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/damageproduct"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                Usage and Damage List
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                         aria-controls="purchase" data-collapse-toggle="purchase">
@@ -221,7 +297,7 @@
                             <path fill="#6b7280"
                                 d="M7 18c1.1 0 2 .9 2 2s-.9 2-2 2s-2-.9-2-2s.9-2 2-2m10 0c1.1 0 2 .9 2 2s-.9 2-2 2s-2-.9-2-2s.9-2 2-2m-9.8-3.2c0 .1.1.2.2.2H19v2H7c-1.1 0-2-.9-2-2c0-.4.1-.7.2-1l1.3-2.4L3 4H1V2h3.3l4.3 9h7l3.9-7l1.7 1l-3.9 7c-.3.6-1 1-1.7 1H8.1l-.9 1.6v.2M9.4 1c.8 0 1.4.6 1.4 1.4s-.6 1.4-1.4 1.4S8 3.2 8 2.4S8.7 1 9.4 1m5.2 8c-.8 0-1.4-.6-1.4-1.4s.6-1.4 1.4-1.4s1.4.6 1.4 1.4S15.3 9 14.6 9M9.2 9L8 7.8L14.8 1L16 2.2L9.2 9" />
                         </svg>
-                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Showroom Sale</span>
+                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Sale</span>
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 10 6">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -293,6 +369,7 @@
                         </li>
                     </ul>
                 </li>
+                
                 <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
@@ -318,41 +395,6 @@
                         <li>
                             <a href="/stocktakeout"
                                 class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Stock Takeout List</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <button type="button"
-                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                        aria-controls="usage" data-collapse-toggle="usage">
-                        <svg width="24" height="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <g fill="none" stroke="#6b7280" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="4">
-                                <path d="m13 8l-7 6l7 7" />
-                                <path
-                                    d="M6 14h22.994c6.883 0 12.728 5.62 12.996 12.5c.284 7.27-5.723 13.5-12.996 13.5H11.998" />
-                            </g>
-                        </svg>
-                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Usage and Damage</span>
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="m1 1 4 4 4-4" />
-                        </svg>
-                    </button>
-                    <ul id="usage" class="hidden py-2 space-y-2">
-                        <li>
-                            <a href="/usageproduct/create"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add Usage and Damage</a>
-                        </li>
-                        <li>
-                            <a href="/damageproduct"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Usage and Damage Pending List</a>
-                        </li>
-                        <li>
-                            <a href="/usageproduct"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Usage and Damage
-                                List</a>
                         </li>
                     </ul>
                 </li>
@@ -516,21 +558,22 @@
     </aside>
 
     <nav
-        class=" bg-blue-700  dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        class=" bg-blue-700 p-3  dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+
             <div class="text-center">
                 <button
                     class="text-white bg-green-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                    type="button" data-drawer-target="drawer-navigation"
-                    data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+                    type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
+                    aria-controls="drawer-navigation">
                     Show navigation
                 </button>
             </div>
             <div class="flex md:order-2">
                 <a href="/purchase/create">
                     <button type="button"
-                        class="text-white bg-yellow-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <div class="flex justify-center items-center">
+                        class="text-white bg-yellow-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-0 text-center md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <div class="flex justify-center items-center align-middle pt-3">
                             <p class="mx-1"> <svg width="24" height="24" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill="#ffffff"
@@ -541,8 +584,8 @@
                     </button></a>
                 <a href="/cashsale/create">
                     <button type="button"
-                        class="text-white ml-2 bg-green-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <div class="flex justify-center items-center">
+                        class="text-white ml-2 bg-green-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-0 text-center md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <div class="flex justify-center items-center pt-3">
                             <p class="mx-1"> <svg width="24" height="24" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill="#ffffff"
@@ -564,20 +607,184 @@
                 </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                        <a href="/dashboard" class="flex items-center">
-                            <img src="{{ $logo }}" class="h-10 mr-3" alt="SKS Logo">
-                            <span
-                                class="self-center text-2xl font-semibold whitespace-nowrap text-white dark:text-white">{{ $business_name }}</span>
-                        </a>
+                <a href="/dashboard" class="flex items-center">
+                    <img src="{{ $logo }}" class="h-10 mr-3" alt="SKS Logo">
+                    <span
+                        class="self-center text-2xl font-semibold whitespace-nowrap text-white dark:text-white">{{ $business_name }}</span>
+                </a>
             </div>
         </div>
     </nav>
-    <div class="mt-20 mx-5">
-        @yield('body')
+    <div class=" mt-24">
+
+        <div class=" flex justify-between p-3">
+            <p class=" text-2xl">Add Stockout</p>
+            <a href="/customer/create"> <button class="px-3 py-2 bg-blue-600 rounded-lg text-white">+ Add
+                    Customer</button></a>
+        </div>
+        <form action="/stocktakeout" method="post">
+            @csrf
+            <div class="mt-3 rounded-lg shadow-lg p-5">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 ">
+                        <span id="day"></span> : <span id="year"></span>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                        <span>Invoice No: {{ $lastId + 1 }}</span>
+                    </div>
+                </div>
+                <div class="flex w-full justify-around items-center space-x-3 py-5">
+                    <div class="mb-6 w-full">
+                        <label for="customer"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Customer Name
+                        </label>
+
+                        <select name="customer" class=" w-64 h-10" id="customerList"></select>
+
+                    </div>
+                </div>
+                <div class="flex space-x-3  w-8/12 justify-items-center items-center">
+                    <div class="mb-6 w-full">
+                        <label for="product"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product
+                            Name</label>
+                        <select id="productselect"
+                            class="bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value="">-- choose product --</option>
+                            @foreach ($products as $product)
+                                <option value="{{ $product->id }}">
+                                    {{ $product->product_name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-6 w-full ">
+                        <label for="purchasedate"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Puchase
+                            Quantity
+                        </label>
+                        <input type="number" min="0" value="1" name="purchasedate" id="itemQuantity"
+                            class="bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Category Name" required>
+                    </div>
+                    <button type="button" id="add"
+                        class=" bg-yellow-400 text-white rounded-lg font-medium px-2 w-60 py-2 get-details">Add to
+                        list</button>
+                </div>
+                <div class="card-body">
+                    <table id="products_table"
+                        class="w-full text-sm text-left text-gray-500 rounded-lg dark:text-gray-400">
+                        <thead class="text-xs text-white uppercase bg-blue-400  dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 rounded-l-lg">Product</th>
+                                <th scope="col" class="px-6 py-3">Price</th>
+                                <th scope="col" class="px-6 py-3">Quantity</th>
+                                <th scope="col" class="px-6 py-3">Serial No</th>
+                                <th scope="col" class="px-6 float-right py-3">Amount</th>
+                                <th scope="col" class="px-6 py-3 rounded-r-lg"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="new">
+
+                        </tbody>
+                    </table>
+                    <div class="flex justify-end">
+                        <button id="delBut" type="button" class=" bg-red-500 px-2 py-1 rounded-md my-5">Delete
+                            Row</button>
+                    </div>
+
+                    <div class=" flex items-center justify-end  ">
+                        <span class=" font-semibold text-lg">Discount(Ks) : </span>
+                        <input type="number" class="rounded-lg font-semibold text-lg w-28 border-transparent"
+                            name="discount" value="0" id="discount">
+                    </div>
+                    <div class=" flex items-center justify-end  ">
+                        <span class=" font-semibold text-lg">Grand Total(Ks) : </span>
+                        <input type="number" readonly
+                            class="rounded-lg font-semibold text-lg w-28 border-transparent" name="grandtotal"
+                            id="gtotal">
+                    </div>
+                    <div class=" mb-5 flex flex-col">
+                        <label for="description">Remarks</label>
+                        <textarea name="remark" id="" cols="100" rows="2"></textarea>
+                    </div>
+                    <span class="mt-5 ml-[73%]">
+                        <button type="submit"
+                            class=" bg-yellow-400  text-white rounded-lg font-medium px-5 py-2">Submit</button>
+                        <button type="button" class=" bg-gray-400 rounded-lg font-medium px-5 py-2">Cancel</button>
+                    </span>
+                </div>
+                <input type="hidden" id="credit">
+                <input type="hidden" id="deposit">
+        </form>
+        @if (session('fail'))
+            <script>
+                let msg = @json(session('fail'));
+                swal("Oops!", msg, "error");
+            </script>
+        @endif
+
+        <!-- Include Select2 (full version) -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+            integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+        </script>
+
+
+        <script src="{{ asset('js/output.js') }}" defer></script>
+
+        <script>
+            $(document).ready(function() {
+                $("#customerList").select2({
+                    placeholder: 'Choose Customer',
+                    ajax: {
+                        url: "{{ route('selectproducts') }}",
+                        processResults: function({
+                            data
+                        }) {
+                            return {
+                                results: $.map(data, function(item) {
+                                    return {
+                                        id: item.id,
+                                        text: item.cus_name,
+                                    }
+                                })
+                            }
+                        }
+                    }
+                })
+
+                $("#productselect").select2({
+                    placeholder: 'Choose Products',
+                    ajax: {
+                        url: "{{ route('selectp') }}",
+                        processResults: function({
+                            data
+                        }) {
+                            return {
+                                results: $.map(data, function(item) {
+                                    return {
+                                        id: item.id,
+                                        text: item.product_name,
+                                    }
+                                })
+                            }
+                        }
+                    }
+                })
+            });
+        </script>
+
     </div>
-
-
-
 </body>
-
 </html>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
