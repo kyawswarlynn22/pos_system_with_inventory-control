@@ -318,6 +318,38 @@
                 <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                        aria-controls="usage" data-collapse-toggle="usage">
+                        <svg width="24" height="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="21.5" fill="none" stroke="#6b7280" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path fill="none" stroke="#6b7280" stroke-linecap="round" stroke-linejoin="round" d="m3.307 29.834l14.398-14.7l-4.668-4.572h12.95v12.684l-4.41-4.318L5.645 35.194"/>
+                            <path fill="none" stroke="#6b7280" stroke-linecap="round" stroke-linejoin="round" d="M42.715 13.416L27.047 29.411l-4.729-4.618v12.989h13.26l-4.465-4.374l13.858-14.147"/>
+                        </svg>
+                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Usage and Damage</span>
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+                    <ul id="usage" class="hidden py-2 space-y-2">
+                        <li>
+                            <a href="/usageproduct/create"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add Usage and Damage</a>
+                        </li>
+                        <li>
+                            <a href="/damageproduct"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Usage and Damage Pending List</a>
+                        </li>
+                        <li>
+                            <a href="/usageproduct"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Usage and Damage
+                                List</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <button type="button"
+                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                         aria-controls="expense" data-collapse-toggle="expense">
                         <svg width="24" height="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                             <g fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round">
