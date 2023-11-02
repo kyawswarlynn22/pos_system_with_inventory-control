@@ -35,6 +35,8 @@ class AccountController extends Controller
         $closeornot = $closeornotClass->checkCloseOrnot($maxid);
         $lastCIHAmt = $closeornotClass->lasCIHamt();
         $lastCIHTHB = $CashTHB->lasCIHamt();
+        $pendingPurchase = $AccountingClass->pendingPurchase();
+        
 
 
         // dd($totalExpense,$totalIncome,$totalPurchase,$totalCash,$totalDeposit,$totalSaleReturn);
@@ -48,7 +50,7 @@ class AccountController extends Controller
             'salecolse' => $closeornot,
             'cashinhand' => $lastCIHAmt,
             'cashinhandThb' => $lastCIHTHB,
-           
+            'pendingpurchase' => $pendingPurchase,
         ]);
     }
 

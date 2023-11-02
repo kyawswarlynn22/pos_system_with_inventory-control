@@ -156,13 +156,17 @@
     </div>
 
     </div>
-    <div class=" p-5 shadow-lg w-1/2 rounded-2xl mt-10 font-semibold bg-gray-400 mb-20">
+    <div class=" p-5 shadow-lg w-1/2 rounded-2xl mt-10 font-semibold bg-gray-400 mb-10">
         <span class=" text-2xl">Cash In Hand Balance: </span>
         <span class=" text-2xl" id="cashinhand">{{ $cashinhand }} </span>MMK
     </div>
-    <div class=" p-5 shadow-lg w-1/2 rounded-2xl mt-10 font-semibold bg-gray-400 mb-20">
+    <div class=" p-5 shadow-lg w-1/2 rounded-2xl mt-3 font-semibold bg-gray-400 mb-10">
         <span class=" text-2xl">Cash In Hand(THB): </span>
         <span class=" text-2xl" id="">{{ $cashinhandThb }} </span>THB
+    </div>
+    <div class=" p-5 shadow-lg w-1/2 rounded-2xl mt-3 font-semibold bg-gray-400 mb-10">
+        <span class=" text-2xl">Total Purchase: </span>
+        <span class=" text-2xl" id="">{{ $pendingpurchase }} </span>MMK
     </div>
     <script>
         var purchasestring = document.getElementById("pur").innerText;

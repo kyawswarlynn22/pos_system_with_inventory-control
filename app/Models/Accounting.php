@@ -94,4 +94,10 @@ class Accounting extends Model
             ->where('created_at', '<=', $endTime)
             ->sum('grand_total');
     }
+
+    public function pendingPurchase()
+    {
+        return $totoalwarehousePurchase = Purchase::where('ship_status',0)
+        ->sum('grand_total');
+    }
 }
