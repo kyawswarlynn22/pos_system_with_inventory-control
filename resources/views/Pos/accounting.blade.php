@@ -46,7 +46,7 @@
                         </th>
 
                         <th scope="col" class="px-6 py-3 float-right">
-                           Amount
+                            Amount
                         </th>
                     </tr>
                 </thead>
@@ -61,7 +61,7 @@
                     </tr>
                     <tr class="bg-blue-500 border-b border-blue-400">
                         <th scope="row" class="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
-                           Deposit Sale
+                            Deposit Sale
                         </th>
 
                         <td id="deposit" class="px-6 py-4 float-right">
@@ -83,7 +83,7 @@
                         </th>
 
                         <td id="debit" class="px-6 py-4 float-right">
-                            
+
                         </td>
                     </tr>
                 </tbody>
@@ -107,7 +107,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                   
+
                     <tr class="bg-pink-800 border-b ">
                         <th scope="row" class="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
                             Purchase
@@ -132,16 +132,16 @@
                         </th>
 
                         <td id="exp" class="px-6 py-4 float-right">
-                           {{ $expense }}
+                            {{ $expense }}
                         </td>
                     </tr>
                     <tr class="bg-pink-800 border-b border-blue-400">
                         <th scope="row" class="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
-                           Total Outcome(mmk)
+                            Total Outcome(mmk)
                         </th>
 
                         <td id="credit" class="px-6 py-4 float-right">
-                          
+
                         </td>
                     </tr>
                 </tbody>
@@ -149,25 +149,43 @@
         </div>
 
     </div>
-   
+
     <div class=" rounded-lg  mt-5 p-4 text-right font-medium shadow-md bg-blue-500">
         <span class=" text-xl font-semibol mt-5">Today Balance: </span>
         <span id="balance" class="text-xl font-semibol mt-5">546587</span>
     </div>
 
     </div>
-    <div class=" p-5 shadow-lg w-1/2 rounded-2xl mt-10 font-semibold bg-gray-400 mb-10">
-        <span class=" text-2xl">Cash In Hand Balance: </span>
-        <span class=" text-2xl" id="cashinhand">{{ $cashinhand }} </span>MMK
+    <div class=" flex justify-between space-x-3">
+        <div class=" p-5 shadow-lg w-1/2 rounded-2xl mt-10 font-semibold bg-gray-400 mb-10">
+            <span class=" text-2xl">Cash In Hand Balance: </span>
+            <span class=" text-2xl" id="cashinhand">{{ $cashinhand }} </span>MMK
+        </div>
+        <div class=" p-5 shadow-lg w-1/2  rounded-2xl mt-10 font-semibold bg-gray-400 mb-10">
+            <span class=" text-2xl">Cash In Hand(THB): </span>
+            <span class=" text-2xl" id="bat">{{ $cashinhandThb }} </span>THB
+        </div>
     </div>
-    <div class=" p-5 shadow-lg w-1/2 rounded-2xl mt-3 font-semibold bg-gray-400 mb-10">
-        <span class=" text-2xl">Cash In Hand(THB): </span>
-        <span class=" text-2xl" id="">{{ $cashinhandThb }} </span>THB
+    <div class=" flex justify-between space-x-3">
+        <div class=" p-5 shadow-lg w-1/2 rounded-2xl  font-semibold bg-gray-400 mb-10">
+            <span class=" text-2xl">Showroom Product Values: </span>
+            <span class=" text-2xl" id="productsamt"></span>MMK
+        </div>
+        <div class=" p-5 shadow-lg w-1/2 rounded-2xl font-semibold bg-gray-400 mb-10">
+            <span class=" text-2xl">Total Purchase: </span>
+            <span class=" text-2xl" id="warehousepur">{{ $pendingpurchase }} </span>MMK
+        </div>
     </div>
-    <div class=" p-5 shadow-lg w-1/2 rounded-2xl mt-3 font-semibold bg-gray-400 mb-10">
-        <span class=" text-2xl">Total Purchase: </span>
-        <span class=" text-2xl" id="">{{ $pendingpurchase }} </span>MMK
+    <div class=" flex justify-between space-x-3">
+       
+        <div class=" p-5 shadow-lg w-1/2 rounded-2xl font-semibold bg-gray-400 mb-10">
+            <span class=" text-2xl">Estimate Capital Value: </span>
+            <span class=" text-2xl" id="estimate"> </span>MMK
+        </div>
+
     </div>
+
+
     <script>
         var purchasestring = document.getElementById("pur").innerText;
         var cashstring = document.getElementById("cash").innerText;
@@ -180,6 +198,10 @@
         var total = document.getElementById('balance');
         var grand_total_value = document.getElementById('grandtotalamt');
         var cih = document.getElementById('cashinhand');
+        var bat = document.getElementById('bat');
+        var warehouse = document.getElementById('warehousepur');
+        var productsamt = document.getElementById('productsamt');
+        var estimate = document.getElementById('estimate');
 
 
         var purchase = parseInt(purchasestring);
@@ -187,21 +209,35 @@
         var deposit = parseInt(depositstring);
         var expense = parseInt(expensestring);
         var income = parseInt(incomestring);
-       
+
         var salereturn = parseInt(saleturnstring);
         var cashinhand = parseInt(cih.innerText);
+        var cashinhandbat = parseInt(bat.innerText);
+        var warehousepurchase = parseInt(warehouse.innerText);
+ 
 
 
-        var creditSubtotal = purchase + expense + salereturn ;
+        var creditSubtotal = purchase + expense + salereturn;
         var debitSubtotal = cash + deposit + income;
         var totalbal = debitSubtotal - creditSubtotal;
         grand_total_value.value = totalbal;
-
+      
 
         credit.innerText = creditSubtotal.toLocaleString();
         debit.innerText = debitSubtotal.toLocaleString();
         total.innerText = totalbal.toLocaleString() + "Ks";
         cih.innerText = cashinhand.toLocaleString();
+        bat.innerText = cashinhandbat.toLocaleString();
+        warehouse.innerText = warehousepurchase.toLocaleString();
+
+        var amt = sessionStorage.getItem("productamt");
+        productsamt.innerText = parseInt(amt).toLocaleString();
+
+       
+
+        var capital = warehousepurchase + cashinhand + parseInt(amt);
+        estimate.innerText = capital.toLocaleString();
+
     </script>
 
 @endsection
