@@ -23,8 +23,10 @@ class ProductController extends Controller
     {
         $productAllDataClass = new Product();
         $productAllData = $productAllDataClass->productAllData();
+        $chargeandfees = $productAllDataClass->chargesAndServices();
         return view('Pos.productList', [
-            'productData' => $productAllData
+            'productData' => $productAllData,
+            'chargesandfees' => $chargeandfees
         ]);
     }
 
