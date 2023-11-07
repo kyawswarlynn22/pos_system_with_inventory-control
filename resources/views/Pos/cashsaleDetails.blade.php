@@ -126,7 +126,7 @@
 
 
         </div>
-        <input value="{{ $ProductDetails->remark }}" class=" mt-40 text-blue-800">
+        <input value="{{ $ProductDetails->remark }}" class=" mt-40 w-full text-blue-800">
     </div>
     </div>
 
