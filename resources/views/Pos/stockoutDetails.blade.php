@@ -23,7 +23,22 @@
 <body>
     <nav
         class=" bg-blue-700  dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-center p-4">
+            <div class=" flex justify-center items-center">
+                <a href="/dashboard" class="flex justify-center items-center">
+                    <img src="{{ $logo }}" class="h-40 " alt="SKS Logo">
+                    <div class=" flex  flex-col justify-center items-center text-blue-800">
+                        <span
+                            class="self-center text-4xl font-semibold text-blue-800 whitespace-nowrap">{{ $business_name }}</span>
+                        <span class=" pl-8">No.24, Nguwar str, Ahlone Tsp, Yangon.<br>
+                            +95995045555, +959798800801</span>
+                    </div>
+                    
+                    <img class=" h-24"  src="{{ asset('images/infinity plus logo.jpg') }}" alt="Example Image">
+
+                </a>
+               
+            </div> <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <div class=" flex flex-col justify-center items-center">
                 <a href="/dashboard" class="flex items-center">
                     <img src="{{ $logo }}" class="h-20 mr-3" alt="SKS Logo">
