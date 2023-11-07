@@ -33,11 +33,11 @@
                         <span class=" pl-8">No.24, Nguwar str, Ahlone Tsp, Yangon.<br>
                             +95995045555, +959798800801</span>
                     </div>
-                    
-                    <img class=" h-24"  src="{{ asset('images/infinity plus logo.jpg') }}" alt="Example Image">
+
+                    <img class=" h-24" src="{{ asset('images/infinity plus logo.jpg') }}" alt="Example Image">
 
                 </a>
-               
+
             </div>
     </nav>
     <div class=" ">
@@ -130,13 +130,12 @@
 
         </div>
         <div class=" overflow-x-auto">
-        
-        <p class=" mt-40 w-full whitespace-pre-line break-words h-40 text-blue-800">
-            {{ $ProductDetails->remark }}" 
-        </p>
+            <p class=" mt-40 w-full whitespace-pre-line break-words h-40 text-blue-800">
+                {{ $ProductDetails->remark }}"
+            </p>
         </div>
-        
-       
+
+
     </div>
     </div>
 
