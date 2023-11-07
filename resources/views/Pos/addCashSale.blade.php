@@ -229,6 +229,11 @@
                                 Sale</a>
                         </li>
                         <li>
+                            <a href="/creditsale/create"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Credit
+                                Sale</a>
+                        </li>
+                        <li>
                             <a href="/depositsale/create"
                                 class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Deposit
                                 Sale</a>
@@ -246,6 +251,11 @@
                         <li>
                             <a href="/depositsale"
                                 class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Deposit
+                                Sale List</a>
+                        </li>
+                        <li>
+                            <a href="/creditsale"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Credit
                                 Sale List</a>
                         </li>
                         <li>
