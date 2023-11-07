@@ -120,6 +120,10 @@ class Product extends Model implements Auditable
             ->first();
     }
 
+    public function getProduct(){
+        return Product::where('del_flg',0)->get();
+    }
+
     public function productEdit($id)
     {
         return Product::where('id', $id)->first();

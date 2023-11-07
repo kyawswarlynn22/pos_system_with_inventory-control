@@ -31,7 +31,7 @@ class UsageContorller extends Controller
     public function create()
     {
         $productListClass = new Product();
-        $productList = $productListClass->getProduts();
+        $productList = $productListClass->getProduct();
         return view('Pos.addandsubstract', [
             'productData' => $productList,
         ]);
