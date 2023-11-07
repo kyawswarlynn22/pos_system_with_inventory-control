@@ -2,13 +2,13 @@
 
 @section('title', 'Expense List');
 @section('body')
-    <p class=" text-2xl">Expense List</p>
+    <p class=" text-2xl">Income List</p>
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
 
         <div class="pb-4 pt-4 font-medium text-lg bg-white flex items-center space-x-2 dark:bg-gray-900">
             <div class="">
-                Total Expense Amount :
+                Total Income Amount :
             </div>
             <span id="gtotal"></span>MMK
         </div>
