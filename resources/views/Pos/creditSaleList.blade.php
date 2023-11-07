@@ -122,7 +122,7 @@
                         </td>
                     </tr>
                 @empty
-                    <div class=" text-red-500 text-xl font-bold ">No Takeout List</div>
+                    <div class=" text-red-500 text-xl font-bold ">No Credit Sale List</div>
                 @endforelse
             </tbody>
         </table>
