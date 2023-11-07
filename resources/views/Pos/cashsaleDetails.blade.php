@@ -34,7 +34,7 @@
                             +95995045555, +959798800801</span>
                     </div>
                     
-                    <img class="h-40 "  src="{{ asset('images/infinity plus logo.jpg') }}" alt="Example Image">
+                    <img class=" h-24"  src="{{ asset('images/infinity plus logo.jpg') }}" alt="Example Image">
 
                 </a>
                
