@@ -100,7 +100,7 @@
                                         value="{{ $item->quantity }}">
                                 </td>
                                 <td>
-                                    <input type="text" readonly name="serial[]"
+                                    <input type="text"  name="serial[]"
                                         class="outline-none border-transparent border-gray-300 rounded-lg "
                                         value="{{ $item->serial_no }}">
                                 </td>
