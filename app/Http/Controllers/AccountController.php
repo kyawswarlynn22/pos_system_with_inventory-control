@@ -36,6 +36,8 @@ class AccountController extends Controller
         $lastCIHAmt = $closeornotClass->lasCIHamt();
         $lastCIHTHB = $CashTHB->lasCIHamt();
         $pendingPurchase = $AccountingClass->pendingPurchase();
+        $unpaidCredit = $AccountingClass->unpaidCredit();
+        $paidCredit = $AccountingClass->paidCredit();
         
 
 
@@ -51,6 +53,8 @@ class AccountController extends Controller
             'cashinhand' => $lastCIHAmt,
             'cashinhandThb' => $lastCIHTHB,
             'pendingpurchase' => $pendingPurchase,
+            'unpaidamt' => $unpaidCredit,
+            'paidamt' => $paidCredit,
         ]);
     }
 

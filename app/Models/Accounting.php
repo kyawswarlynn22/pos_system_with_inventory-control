@@ -100,4 +100,16 @@ class Accounting extends Model
         return $totoalwarehousePurchase = Purchase::where('ship_status',0)
         ->sum('grand_total');
     }
+
+    public function unpaidCredit()
+    {
+        return $totalUnpaidamt = Creditsale::where('paid',0)
+        ->sum('grand_total');
+    }
+
+    public function paidCredit()
+    {
+        return $totalUnpaidamt = Creditsale::where('paid',1)
+        ->sum('grand_total');
+    }
 }

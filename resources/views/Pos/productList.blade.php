@@ -198,7 +198,7 @@
                                         <path fill="none" d="M0 0h36v36H0z" />
                                     </svg>
                                 </a>
-                                @if ($userRole == 0)
+                              
                                     <a href="/product/{{ $product->id }}/edit"
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                         <svg width="24" height="24" viewBox="0 0 24 24"
@@ -223,7 +223,7 @@
                                             </svg>
                                         </button>
                                     </form>
-                                @endif
+                            
 
 
                             </td>

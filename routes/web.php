@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CashsaleController;
 use App\Http\Controllers\CashThbController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CreditsaleController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DailyCihController;
 use App\Http\Controllers\DamageController;
@@ -33,6 +34,8 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\WarehousePurchaseController;
 use App\Http\Controllers\WarehouseStockController;
+use App\Models\Creditsale;
+use App\Models\CreditsaleDetails;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
@@ -144,5 +147,9 @@ Route::middleware('loginCheck')->group(function () {
     Route::get('getCustomer',[ CustomerController::class,'getCustomer'])->name('selectproducts');
 
     Route::get('getProduct',[ ProductController::class,'getProduct'])->name('selectp');
+
+    Route::resource('creditsale', CreditsaleController::class);
+
+
 
 });
