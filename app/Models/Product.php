@@ -43,7 +43,7 @@ class Product extends Model implements Auditable
             ->join('sub_categories', 'sub_categories_id', '=', 'sub_categories.id')
             ->orderBy('products.id', 'desc')
             ->where('products.del_flg', 0)
-            ->where('categories_id', '<>', 21)
+            ->where('categories_id', '<>', 6)
             ->get();
         
     }
@@ -68,7 +68,7 @@ class Product extends Model implements Auditable
             ->join('sub_categories', 'sub_categories_id', '=', 'sub_categories.id')
             ->orderBy('products.id', 'desc')
             ->where('products.del_flg', 0)
-            ->where('categories_id', 21)
+            ->where('categories_id', 6)
             ->paginate(15);
         
     }
