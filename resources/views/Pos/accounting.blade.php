@@ -123,7 +123,7 @@
                         </th>
 
                         <td id="pur" class="px-6 py-4 float-right">
-                            {{ $purchase }}
+                            0
                         </td>
                     </tr>
                     <tr class="bg-pink-800 border-b ">
