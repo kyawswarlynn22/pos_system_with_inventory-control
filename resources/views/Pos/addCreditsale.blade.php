@@ -652,7 +652,7 @@
                             Row</button>
                     </div>
 
-                    <div class=" flex items-center justify-end  ">
+                    <div class=" flex items-center justify-end ">
                         <span class=" font-semibold text-lg">Discount(Ks) : </span>
                         <input type="number" class="rounded-lg font-semibold text-lg w-28 border-transparent"
                             name="discount" value="0" id="discount">

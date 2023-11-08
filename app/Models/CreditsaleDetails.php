@@ -75,6 +75,8 @@ class CreditsaleDetails extends Model implements Auditable
             $updateCashsale->update([
                 'customers_id' => $request->customer,
                 'discount' => $request->discount,
+                'deposit_paid' => $request->deposit,
+                'credit_paid' => $request->credit,
                 'grand_total' => $request->grandtotal,
                 'remark' => $request->remark,
                 'paid' => $request->paid,

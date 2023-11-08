@@ -18,7 +18,7 @@ class Creditsale extends Model implements Auditable
 
     protected $table = 'credit_sale';
 
-    protected $fillable = ['customers_id', 'discount', 'grand_total', 'paid', 'remark', 'del_flg'];
+    protected $fillable = ['customers_id', 'discount','deposit_paid','credit_paid', 'grand_total', 'paid', 'remark', 'del_flg'];
 
     public function lastId()
     {

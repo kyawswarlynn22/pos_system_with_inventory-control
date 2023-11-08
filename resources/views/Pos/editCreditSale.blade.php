@@ -35,7 +35,7 @@
                     <select name="paid" id="paid"
                         class="bg-gray-50 border w-2/3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="0" @if ( $CashsaleData->paid == 0) selected @endif>Unpaid</option>
-                            <option value="1" @if ( $CashsaleData->paid == 1) selected @endif>Paid</option>
+                            <option value="1" @if ( $CashsaleData->paid == 1) selected @endif>Partial Paid</option>
                     </select>
                 </div>
             </div>
@@ -125,6 +125,16 @@
                     <span class=" font-semibold text-lg">Discount(Ks) : </span>
                     <input type="number" class="rounded-lg font-semibold text-lg w-28 border-transparent" name="discount"
                         value="{{ $CashsaleData->discount }}" id="discount">
+                </div>
+                <div class="mt-5 flex items-center justify-end  ">
+                    <span class=" font-semibold text-lg">Deposit Paid(Ks) : </span>
+                    <input type="number" class="rounded-lg font-semibold text-lg w-28 border-transparent" name="deposit"
+                    value="{{ $CashsaleData->deposit_paid }}" id="deposit">
+                </div>
+                <div class="mt-5 flex items-center justify-end  ">
+                    <span class=" font-semibold text-lg">Credit Paid(Ks) : </span>
+                    <input type="number" class="rounded-lg font-semibold text-lg w-28 border-transparent" name="credit"
+                    value="{{ $CashsaleData->credit_paid }}"  id="credit">
                 </div>
                 <div class="mt-5 flex items-center justify-end  ">
                     <span class=" font-semibold text-lg">Grand Total(Ks) : </span>

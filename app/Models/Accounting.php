@@ -110,6 +110,6 @@ class Accounting extends Model
     public function paidCredit()
     {
         return $totalUnpaidamt = Creditsale::where('paid',1)
-        ->sum('grand_total');
+        ->sum('deposit_paid');
     }
 }
