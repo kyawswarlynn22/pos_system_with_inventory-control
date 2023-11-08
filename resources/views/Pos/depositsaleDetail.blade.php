@@ -138,7 +138,7 @@
     </div>
     <div class=" overflow-x-auto">
         <p class=" mt-40 w-full whitespace-pre-line break-words h-40 text-blue-800">
-            {{ $ProductDetails->remark }}"
+            {{ $DepositSaleDetail->remark }}"
         </p>
     </div>
     </div>

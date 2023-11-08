@@ -23,7 +23,7 @@ class CashThb extends Model implements Auditable
         'grand_total'
     ];
 
-
+  
 
 
     public function updateBal($request)
