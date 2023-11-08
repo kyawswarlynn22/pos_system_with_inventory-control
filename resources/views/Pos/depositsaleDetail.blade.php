@@ -40,7 +40,7 @@
                
             </div>
     </nav>
-    <div class=" ">
+    <div class="mt-52 ">
         <p class=" mt-40 ml-5 text-2xl font-bold">Invoice</p>
         <button id="hidden" onclick="printInvoice()"
             class="bg-sky-950 float-right mx-5 -mt-8 text-sky-400 border border-sky-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
