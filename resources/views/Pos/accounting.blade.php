@@ -188,7 +188,7 @@
     <div class=" flex justify-between space-x-3">
         <div class=" p-5 shadow-lg w-1/2 rounded-2xl font-semibold bg-gray-400 mb-10">
             <span class=" text-2xl">Unpaid Credit Sale: </span>
-            <span class=" text-2xl" id="warehousepur">{{ $unpaidamt }} </span>MMK
+            <span class=" text-2xl" id="unpaidamt">{{ $unpaidamt }} </span>MMK
         </div>
         <div class=" p-5 shadow-lg w-1/2 rounded-2xl font-semibold bg-gray-400 mb-10">
             <span class=" text-2xl">Estimate Capital Value: </span>
