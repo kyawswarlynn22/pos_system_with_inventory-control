@@ -58,7 +58,7 @@ class ExpenseModel extends Model implements Auditable
         $date = $request->date;
 
         return $expenseDate = ExpenseModel::whereDate('created_at', $date)
-            // ->where('expense_categories_id',4)
+            ->where('expense_categories_id',4)
             ->get();
     }
 
