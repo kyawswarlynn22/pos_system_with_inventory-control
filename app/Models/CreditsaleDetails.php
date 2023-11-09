@@ -52,7 +52,7 @@ class CreditsaleDetails extends Model implements Auditable
 
     public function updateCreditDetail($request, $id)
     {
-       
+     
         $products = $request->input('productsid', []);
         $quantity = $request->input('quantities', []);
         $price = $request->input('price', []);
@@ -83,9 +83,6 @@ class CreditsaleDetails extends Model implements Auditable
             ]);
         }
 
-        $updateProductStockclass = new CreditsaleDetails();
-        $updateProductStock = $updateProductStockclass->delUpdateSotck($id);
-
         $delCashsaleDetail = CreditsaleDetails::where('credit_sale_id', $id);
         $delCashsaleDetail->delete();
 
@@ -106,6 +103,7 @@ class CreditsaleDetails extends Model implements Auditable
     
     public function delUpdateSotck($id)
     {
+        
         $cashSaleDetils = CreditsaleDetails::join('credit_sale', 'credit_sale_id', '=', 'credit_sale.id')
             ->join('products', 'products_id', '=', 'products.id')
             ->where('credit_sale_id', $id)

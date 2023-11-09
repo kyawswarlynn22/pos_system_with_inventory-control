@@ -115,10 +115,13 @@ class CreditsaleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-      
+       
         $updateCashsaleDetailsClass = new CreditsaleDetails();
+        $updateProductStockclass = new CreditsaleDetails();
+        $updateProductStock = $updateProductStockclass->delUpdateSotck($id);
         $updateCashsaleDetails = $updateCashsaleDetailsClass->updateCreditDetail($request, $id);
         $cashsaleDetailsClass = new CreditsaleDetails();
+      
         $cashsaleDetails = $cashsaleDetailsClass->updateSotckCount($id);
         return redirect('/creditsale');
     }
