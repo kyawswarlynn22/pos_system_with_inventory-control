@@ -235,4 +235,17 @@ class ProductController extends Controller
         }
         return redirect('/product')->withSuccess('Product Delete  Succefully');
     }
+
+    function search_product(Request $request)
+    {
+        $data = $request->input('search_product');
+        $productAllDataClass = new Product();
+        $searchData = Product::where('product_name','like', '%'.$data .'%')
+        ->paginate(15);
+        $chargeandfees = $productAllDataClass->chargesAndServices();
+        return view('Pos.productList',[
+            'productData' => $searchData,
+            'chargesandfees' => $chargeandfees
+        ]);
+    }
 }

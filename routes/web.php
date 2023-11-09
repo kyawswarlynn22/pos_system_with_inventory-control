@@ -128,6 +128,8 @@ Route::middleware('loginCheck')->group(function () {
 
     Route::get('search_customer', [CustomerController::class, 'search_customer']);
 
+    Route::get('search_product', [ProductController::class, 'search_product']);
+
     Route::resource('warehouse', WarehouseController::class);
 
     Route::resource('warehouseadjustment', WarehouseStockController::class);
