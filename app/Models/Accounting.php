@@ -117,7 +117,7 @@ class Accounting extends Model
         $endTime = $currentDateFormatted . ' 23:59:59';
 
         return $totalUnpaidamt = Creditsale::where('paid', 1)->where('updated_date', '>=', $startTime)
-            ->where('updated_date', '<=', $endTime)
+            ->where('updated_at', '<=', $endTime)
             ->sum('deposit_paid');
     }
 }
