@@ -15,7 +15,7 @@ class ExpenseModel extends Model implements Auditable
 
     use \OwenIt\Auditing\Auditable;
 
-    public $timestamps = false;
+  
 
     protected $table = 'expenses';
 

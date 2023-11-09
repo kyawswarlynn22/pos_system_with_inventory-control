@@ -56,7 +56,7 @@ class Creditsale extends Model implements Auditable
     public function getCreditData()
     {
         return $retailsSale = Creditsale::join('customers', 'customers.id', 'credit_sale.customers_id')
-            ->select('customers.cus_name','discount', 'grand_total','paid', 'credit_sale.id',DB::raw('DATE(credit_sale.created_date) as date_only'))
+            ->select('customers.cus_name','discount', 'grand_total','paid', 'credit_sale.id',DB::raw('DATE(credit_sale.created_at) as date_only'))
             ->where('credit_sale.del_flg', 0)
             ->orderBy('credit_sale.id', 'desc')->paginate(15);
     }
@@ -65,7 +65,7 @@ class Creditsale extends Model implements Auditable
     {
         return $cashSaleDetails = Creditsale::join('customers', 'credit_sale.customers_id', 'customers.id')
             ->where('credit_sale.id', $id)
-            ->select( 'discount', 'grand_total', 'remark', 'customers.*',DB::raw('DATE(credit_sale.created_date) as date_only'))
+            ->select( 'discount', 'grand_total', 'remark', 'customers.*',DB::raw('DATE(credit_sale.created_at) as date_only'))
             ->first();
     }
 
