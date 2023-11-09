@@ -62,6 +62,15 @@ class ExpenseModel extends Model implements Auditable
             ->get();
     }
 
+    public function adminexpensedatefilter($request)
+    {
+        $date = $request->date;
+
+        return $expenseDate = ExpenseModel::whereDate('created_at', $date)
+            ->where('expense_categories_id',4)
+            ->get();
+    }
+
     public function updateExpense($request, $id)
     {
         $updateExpense = ExpenseModel::find($id);

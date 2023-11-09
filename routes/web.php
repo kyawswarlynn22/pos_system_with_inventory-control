@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\adminExpenseController;
 use App\Http\Controllers\CashsaleController;
 use App\Http\Controllers\CashThbController;
 use App\Http\Controllers\CategoryController;
@@ -107,6 +108,8 @@ Route::middleware('loginCheck')->group(function () {
     Route::resource('incomedatefilter', IncomeDateController::class);
 
     Route::resource('expensedatefilter', ExpenseController::class);
+
+    Route::resource('adminexpensedatefilter', adminExpenseController::class);
 
     Route::resource('income', IncomeController::class);
 

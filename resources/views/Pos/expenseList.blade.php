@@ -20,13 +20,24 @@
                     class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Search...">
             </div>
-            <form class=" flex justify-end items-center space-x-2" action="/expensedatefilter" method="POST">
+            <div class=" flex justify-between">
+            <form class=" flex justify-end items-center space-x-2" action="/adminexpensedatefilter" method="POST">
                 @csrf
+                <span>For Admin Expense</span>
                 <input class="  my-2 rounded-lg" type="date" name="date">
                 <button type="submit" class=" bg-blue-500 rounded-xl h-10 w-10 flex justify-center items-center"><svg width="24" height="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                     <path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="m4 24l5-5l10 10L39 9l5 5l-25 25L4 24Z" clip-rule="evenodd"/>
                 </svg></button>
             </form>
+            <form class=" flex justify-end items-center space-x-2" action="/expensedatefilter" method="POST">
+                @csrf
+                <span>For Office Expense</span>
+                <input class="  my-2 rounded-lg" type="date" name="date">
+                <button type="submit" class=" bg-blue-500 rounded-xl h-10 w-10 flex justify-center items-center"><svg width="24" height="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="m4 24l5-5l10 10L39 9l5 5l-25 25L4 24Z" clip-rule="evenodd"/>
+                </svg></button>
+            </form>
+        </div>
         </div>
         <table class="w-full text-sm text-left text-gray-500 rounded-lg dark:text-gray-400">
             <thead class="text-xs text-white uppercase bg-blue-400  dark:bg-gray-700 dark:text-gray-400">
