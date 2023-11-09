@@ -104,7 +104,7 @@
                             <td class="px-6 py-4 iquantity">
                                 {{ $item->quantity }}
                             </td>
-                            <td class="px-6 py-4 iquantity">
+                            <td class="px-6 py-4 ">
                                 {{ $item->serial_no }}
                             </td>
                             <td id="itotal" class="px-6 py-4 itot">
