@@ -14,8 +14,6 @@ class Creditsale extends Model implements Auditable
 
     use \OwenIt\Auditing\Auditable;
 
-    public $timestamps = false;
-
     protected $table = 'credit_sale';
 
     protected $fillable = ['customers_id', 'discount','deposit_paid','credit_paid', 'grand_total', 'paid', 'remark', 'del_flg'];
