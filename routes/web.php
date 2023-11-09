@@ -130,6 +130,8 @@ Route::middleware('loginCheck')->group(function () {
 
     Route::get('search_product', [ProductController::class, 'search_product']);
 
+    Route::get('todaypaid', [CreditsaleController::class, 'todaypaid']);
+
     Route::resource('warehouse', WarehouseController::class);
 
     Route::resource('warehouseadjustment', WarehouseStockController::class);

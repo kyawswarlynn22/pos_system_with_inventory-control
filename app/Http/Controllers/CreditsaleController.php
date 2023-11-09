@@ -10,6 +10,7 @@ use App\Models\RetailSale;
 use App\Models\Takeout;
 use App\Models\TakeoutDetails;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CreditsaleController extends Controller
 {
@@ -94,7 +95,7 @@ class CreditsaleController extends Controller
         $cashsaleDataClass = new RetailSale();
         $takeoutDataClass = new Creditsale();
         $cashsaleDetailsDataClass = new CreditsaleDetails();
-       
+
         $cashsaleData = $takeoutDataClass->creditData($id);
         $cashsaleDetailsData = $cashsaleDetailsDataClass->getCreditDetail($id);
 
@@ -102,7 +103,7 @@ class CreditsaleController extends Controller
         $customerList = $cashsaleDataClass->getCustomer();
 
         return view('Pos.editCreditSale', [
-           
+
             'CashsaleData' => $cashsaleData,
             'CashsaleDetailData' => $cashsaleDetailsData,
             'customerList' => $customerList,
@@ -115,13 +116,13 @@ class CreditsaleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-       
+
         $updateCashsaleDetailsClass = new CreditsaleDetails();
         $updateProductStockclass = new CreditsaleDetails();
         $updateProductStock = $updateProductStockclass->delUpdateSotck($id);
         $updateCashsaleDetails = $updateCashsaleDetailsClass->updateCreditDetail($request, $id);
         $cashsaleDetailsClass = new CreditsaleDetails();
-      
+
         $cashsaleDetails = $cashsaleDetailsClass->updateSotckCount($id);
         return redirect('/creditsale');
     }
@@ -134,5 +135,26 @@ class CreditsaleController extends Controller
         $deleteCashClass = new Creditsale();
         $deleteCash = $deleteCashClass->creditDel($id);
         return back();
+    }
+
+    public function todaypaid()
+    {
+        $timezone = 'Asia/Yangon';
+        $currentDate = \Carbon\Carbon::now($timezone);
+        $currentDateFormatted = $currentDate->format('Y-m-d');
+
+        $startTime = $currentDateFormatted . ' 00:00:00';
+        $endTime = $currentDateFormatted . ' 23:59:59';
+
+      $totalUnpaidamt = Creditsale::where('paid', 1)->where('credit_sale.updated_at', '>=', $startTime)
+            ->where('credit_sale.updated_at', '<=', $endTime)
+            ->join('customers', 'customers.id', 'credit_sale.customers_id')
+            ->select('customers.cus_name','discount','deposit_paid','credit_paid', 'grand_total','paid', 'credit_sale.id',DB::raw('DATE(credit_sale.created_at) as date_only'))
+            ->where('credit_sale.del_flg', 0)
+            ->orderBy('credit_sale.id', 'desc')->paginate(15);
+
+            return view('Pos.todayPaidList',[
+                'CashSaleData' => $totalUnpaidamt,
+            ]);
     }
 }
