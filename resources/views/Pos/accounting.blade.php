@@ -139,7 +139,6 @@
                         <th scope="row" class="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
                             Expense
                         </th>
-
                         <td id="exp" class="px-6 py-4 float-right">
                             {{ $expense }}
                         </td>
