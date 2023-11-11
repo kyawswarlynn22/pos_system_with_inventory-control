@@ -27,7 +27,7 @@ class DashboardController extends Controller
         $totalSaleReturn = $AccountingClass->saleReturn();
         $totalPurchase = $AccountingClass->purchase();
         $topProducts = $topProductsClass->gettopProducts();
-
+        
 
         return view(
             'dashboard',
