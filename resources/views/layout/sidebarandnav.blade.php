@@ -576,11 +576,11 @@
                 </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                        <a href="/dashboard" class="flex items-center">
+                      
                             <img src="{{ $logo }}" class="h-10 mr-3" alt="SKS Logo">
                             <span
                                 class="self-center text-2xl font-semibold whitespace-nowrap text-white dark:text-white">{{ $business_name }}</span>
-                        </a>
+                       
             </div>
         </div>
     </nav>
