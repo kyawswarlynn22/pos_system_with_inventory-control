@@ -27,7 +27,8 @@ class DashboardController extends Controller
         $totalSaleReturn = $AccountingClass->saleReturn();
         $totalPurchase = $AccountingClass->purchase();
         $topProducts = $topProductsClass->gettopProducts();
-        
+        $paidCredit = $AccountingClass->paidCredit();
+
 
         return view(
             'dashboard',
@@ -40,6 +41,7 @@ class DashboardController extends Controller
                 'deposit' => $totalDeposit,
                 'salereturn' => $totalSaleReturn,
                 'topProducts' => $topProducts,
+                'paidCredit' => $paidCredit,
             ]
         );
     }

@@ -65,7 +65,7 @@
             <p class="mt-2 p-2 text-2xl pl-5"> Cash In Hand</p>
             <div class="flex  p-2 pl-5  items-center  justify-between">
                 <p class="text-yellow-400 font-bold text-2xl ">
-                    {{ $income + $cash + $deposit - $salereturn - $expense - $purchase }}
+                    {{ $income + $cash + $deposit + $paidCredit - $salereturn - $expense - $purchase }}
                 </p>
                 <div class="h-12 bg-yellow-400 w-12 rounded-full flex justify-center items-center ">
                     <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -88,12 +88,12 @@
                 </div>
                 <div
                     class="flex items-center px-2.5 py-0.5 text-base font-semibold text-green-500 dark:text-green-500 text-center">
-                    23%
-                    <svg class="w-3 h-3 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    Deposit Sale 
+                    {{-- <svg class="w-3 h-3 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 10 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M5 13V1m0 0L1 5m4-4 4 4" />
-                    </svg>
+                    </svg> --}}
                 </div>
             </div>
             <div id="tooltip-chart"></div>
