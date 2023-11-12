@@ -13,8 +13,6 @@ class CashThb extends Model implements Auditable
 
     use HasFactory;
 
-    public $timestamps = false;
-
     use \OwenIt\Auditing\Auditable;
 
     protected $table = 'daily_cih_bat';

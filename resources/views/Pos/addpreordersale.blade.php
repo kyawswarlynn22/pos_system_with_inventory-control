@@ -530,9 +530,10 @@
                     class="text-white bg-green-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                     type="button" data-drawer-target="drawer-navigation"
                     data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
-                    Show navigation
+                    Main Menu
                 </button>
             </div>
+            <div class=" text-white font-medium" id="clock"></div>
             <div class="flex md:order-2">
                 <a href="/purchase/create">
                     <button type="button"
@@ -735,7 +736,7 @@
 
 
 
-
+    <script src="{{ asset('js/datetime.js') }}" defer></script>
 </body>
 
 
