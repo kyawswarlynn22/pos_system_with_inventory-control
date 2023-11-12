@@ -20,9 +20,10 @@
         $currentDateTime = \Carbon\Carbon::now($timezone);
         $currentDateFormatted = $currentDateTime->format('Y-m-d');
     @endphp
+     <input type="text" class="" hidden name="grand_total" id="grandtotalamt">
     {{-- <form class=" float-right -mt-14" action="/saleClosing" method="post">
         @csrf
-        <input type="text" class="" hidden name="grand_total" id="grandtotalamt">
+       
         @if ($currentDateFormatted == $salecolse->crdate_only)
             <input type="text" hidden name="update">
             <button class=" float-right bg-blue-500 rounded-lg px-3 py-1">Closed Update?</button>
