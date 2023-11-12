@@ -160,7 +160,7 @@
 
     <div class=" rounded-lg  mt-5 p-4 text-right font-medium shadow-md bg-blue-500">
         <span class=" text-xl font-semibol mt-5">Today Balance: </span>
-        <span id="balance" class="text-xl font-semibol mt-5">546587</span>
+        <span id="balance" class="text-xl font-semibol mt-5"> </span>
     </div>
 
     </div>

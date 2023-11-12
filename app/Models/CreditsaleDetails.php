@@ -69,8 +69,15 @@ class CreditsaleDetails extends Model implements Auditable
             }
         };
 
-
         $updateCashsale = Creditsale::find($id);
+
+        $cashInHand = DailyCih::max('id');
+        $cashInHandBal = DailyCih::find($cashInHand);
+        if ($cashInHandBal) {
+            $cashInHandBal->grand_total -= $updateCashsale->deposit_paid;
+            $cashInHandBal->save();
+        }
+
         if ($updateCashsale) {
             $updateCashsale->update([
                 'customers_id' => $request->customer,
@@ -82,6 +89,7 @@ class CreditsaleDetails extends Model implements Auditable
                 'paid' => $request->paid,
             ]);
         }
+
 
         $delCashsaleDetail = CreditsaleDetails::where('credit_sale_id', $id);
         $delCashsaleDetail->delete();
@@ -97,6 +105,13 @@ class CreditsaleDetails extends Model implements Auditable
                 $cashsaleDetails->price = $price[$product];
                 $cashsaleDetails->save();
             }
+        }
+
+        $cashInHand = DailyCih::max('id');
+        $cashInHandBal = DailyCih::find($cashInHand);
+        if ($cashInHandBal) {
+            $cashInHandBal->grand_total += $request->deposit;
+            $cashInHandBal->save();
         }
     }
 

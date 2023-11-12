@@ -28,13 +28,7 @@ class DailyCihController extends Controller
      */
     public function store(Request $request)
     {
-        $saveCashInHandClass = new DailyCih();
-        if ($request->has('update')) {
-            $updateBal = $saveCashInHandClass->updateBal($request);
-            return back();
-        }
-        $saveCashInHand = $saveCashInHandClass->saveCashinHand($request);
-        return back();
+       //
     }
 
     /**

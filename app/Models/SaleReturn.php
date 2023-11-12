@@ -71,11 +71,24 @@ class SaleReturn extends Model  implements Auditable
                 $cashsaleDetails->save();
             }
         }
+        $cashInHand = DailyCih::max('id');
+        $cashInHandBal = DailyCih::find($cashInHand);
+        if ($cashInHandBal) {
+            $cashInHandBal->grand_total -= $request->grandtotal;
+            $cashInHandBal->save();
+        }
     }
 
     public function updateSalereturn($request,$id)
     {
         $updateSalereturn = SaleReturn::find($id);
+
+        $cashInHand = DailyCih::max('id');
+        $cashInHandBal = DailyCih::find($cashInHand);
+        if ($cashInHandBal) {
+            $cashInHandBal->grand_total += $updateSalereturn->grand_total;
+            $cashInHandBal->save();
+        }
         if ($updateSalereturn) {
             $updateSalereturn->update([
                 'customers_id' => $request->customer,
@@ -84,10 +97,26 @@ class SaleReturn extends Model  implements Auditable
                 'remark' => $request->remark,
             ]);
         }
+
+        $cashInHand = DailyCih::max('id');
+        $cashInHandBal = DailyCih::find($cashInHand);
+        if ($cashInHandBal) {
+            $cashInHandBal->grand_total -= $request->grandtotal;
+            $cashInHandBal->save();
+        }
     }
 
     public function delSaleReturn($id)
     {
+        $updateSalereturn = SaleReturn::find($id);
+
+        $cashInHand = DailyCih::max('id');
+        $cashInHandBal = DailyCih::find($cashInHand);
+        if ($cashInHandBal) {
+            $cashInHandBal->grand_total += $updateSalereturn->grand_total;
+            $cashInHandBal->save();
+        }
+        
         $delSalereturn = SaleReturn::find($id);
         $delSalereturn->delete();
     }

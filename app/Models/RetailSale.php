@@ -22,7 +22,7 @@ class RetailSale extends Model implements Auditable
     public function getCashSaleData()
     {
         return $retailsSale = RetailSale::join('customers', 'customers.id', 'retail_sales.customers_id')
-            ->select('customers.cus_name', 'pur_date', 'grand_total', 'retail_sales.id',DB::raw('DATE(retail_sales.pur_date) as date_only'))
+            ->select('customers.cus_name', 'pur_date', 'grand_total', 'retail_sales.id', DB::raw('DATE(retail_sales.pur_date) as date_only'))
             ->where('retail_sales.del_flg', 0)
             ->orderBy('retail_sales.id', 'desc')->paginate(15);
     }
@@ -31,7 +31,7 @@ class RetailSale extends Model implements Auditable
     {
         return $cashSaleDetails = RetailSale::join('customers', 'retail_sales.customers_id', 'customers.id')
             ->where('retail_sales.id', $id)
-            ->select('pur_date', 'discount', 'grand_total', 'remark', 'customers.*',DB::raw('DATE(retail_sales.pur_date) as date_only'))
+            ->select('pur_date', 'discount', 'grand_total', 'remark', 'customers.*', DB::raw('DATE(retail_sales.pur_date) as date_only'))
             ->first();
     }
 
@@ -42,7 +42,7 @@ class RetailSale extends Model implements Auditable
 
     public function getCustomer()
     {
-        return Customer::where('del_flg',0)->get();
+        return Customer::where('del_flg', 0)->get();
     }
 
     public function storeCashsaleData($request)
@@ -87,6 +87,12 @@ class RetailSale extends Model implements Auditable
                 $cashsaleDetails->save();
             }
         }
+        $cashInHand = DailyCih::max('id');
+        $cashInHandBal = DailyCih::find($cashInHand);
+        if ($cashInHandBal) {
+            $cashInHandBal->grand_total += $request->grandtotal;
+            $cashInHandBal->save();
+        }
     }
 
     public function cashsaleData($id)
@@ -118,6 +124,14 @@ class RetailSale extends Model implements Auditable
 
 
         $updateCashsale = RetailSale::find($id);
+
+        $cashInHand = DailyCih::max('id');
+        $cashInHandBal = DailyCih::find($cashInHand);
+        if ($cashInHandBal) {
+            $cashInHandBal->grand_total -= $updateCashsale->grand_total;
+            $cashInHandBal->save();
+        }
+
         if ($updateCashsale) {
             $updateCashsale->update([
                 'customers_id' => $request->customer,
@@ -145,6 +159,11 @@ class RetailSale extends Model implements Auditable
                 $cashsaleDetails->save();
             }
         }
+
+        if ($cashInHandBal) {
+            $cashInHandBal->grand_total += $request->grandtotal;
+            $cashInHandBal->save();
+        }
     }
 
     public function  forserial()
@@ -160,11 +179,20 @@ class RetailSale extends Model implements Auditable
 
     public function getProduct()
     {
-        return Product::where('quantity', '>', 0)->where('del_flg','0')->get();
+        return Product::where('quantity', '>', 0)->where('del_flg', '0')->get();
     }
 
     public function cashSaleDel($id)
     {
+        $Cashsale = RetailSale::find($id);
+
+        $cashInHand = DailyCih::max('id');
+        $cashInHandBal = DailyCih::find($cashInHand);
+        if ($cashInHandBal) {
+            $cashInHandBal->grand_total -= $Cashsale->grand_total;
+            $cashInHandBal->save();
+        }
+
         $updateProductStockclass = new RetailSaleDetails();
         $updateProductStock = $updateProductStockclass->delUpdateSotck($id);
 

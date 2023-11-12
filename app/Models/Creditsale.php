@@ -76,6 +76,15 @@ class Creditsale extends Model implements Auditable
 
     public function creditDel($id)
     {
+        $updateCashsale = Creditsale::find($id);
+
+        $cashInHand = DailyCih::max('id');
+        $cashInHandBal = DailyCih::find($cashInHand);
+        if ($cashInHandBal) {
+            $cashInHandBal->grand_total -= $updateCashsale->deposit_paid;
+            $cashInHandBal->save();
+        }
+
         $updateProductStockclass = new CreditsaleDetails();
         $updateProductStock = $updateProductStockclass->delUpdateSotck($id);
 

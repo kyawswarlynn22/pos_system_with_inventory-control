@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use OwenIt\Auditing\Contracts\Auditable;
 
+use function PHPSTORM_META\type;
+
 class DailyCih extends Model implements Auditable
 {
     use HasFactory;
@@ -50,6 +52,6 @@ class DailyCih extends Model implements Auditable
 
     public function lasCIHamt()
     {
-        return  $getlastAmt = DailyCih::sum('grand_total');
+      return $getlastAmt = DailyCih::sum('grand_total');
     }
 }

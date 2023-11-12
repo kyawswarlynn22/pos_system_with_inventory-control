@@ -36,6 +36,13 @@ class Income extends Model implements Auditable
             $storeIncome->photo = $dbstore;
         }
         $storeIncome->save();
+
+        $cashInHand = DailyCih::max('id');
+        $cashInHandBal = DailyCih::find($cashInHand);
+        if ($cashInHandBal) {
+            $cashInHandBal->grand_total += $request->amount;
+            $cashInHandBal->save();
+        }
     }
 
     public function getIncomeDetail($id)
@@ -63,6 +70,13 @@ class Income extends Model implements Auditable
     public function updateIncome($request, $id)
     {
         $updateModel = Income::find($id);
+
+        $cashInHand = DailyCih::max('id');
+        $cashInHandBal = DailyCih::find($cashInHand);
+        if ($cashInHandBal) {
+            $cashInHandBal->grand_total -= $updateModel->amount;
+            $cashInHandBal->save();
+        }
         if ($updateModel) {
             $updateData = [
                 'expense_categories_id' => $request->category_id,
@@ -81,6 +95,12 @@ class Income extends Model implements Auditable
             }
 
             $updateModel->update($updateData);
+            $cashInHand = DailyCih::max('id');
+            $cashInHandBal = DailyCih::find($cashInHand);
+            if ($cashInHandBal) {
+                $cashInHandBal->grand_total += $request->amount;
+                $cashInHandBal->save();
+            }
         }
     }
 
@@ -90,5 +110,17 @@ class Income extends Model implements Auditable
             ->select('e_c_name', 'incomes.*')
             ->where('incomes.id', $id)
             ->first();
+    }
+
+    public function delIncome($id)
+    {
+        $updateModel = Income::find($id);
+
+        $cashInHand = DailyCih::max('id');
+        $cashInHandBal = DailyCih::find($cashInHand);
+        if ($cashInHandBal) {
+            $cashInHandBal->grand_total -= $updateModel->amount;
+            $cashInHandBal->save();
+        }
     }
 }

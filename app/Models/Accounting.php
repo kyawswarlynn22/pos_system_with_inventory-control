@@ -78,7 +78,7 @@ class Accounting extends Model
 
         return $totalExpense = DepositSale::where('created_at', '>=', $startTime)
             ->where('created_at', '<=', $endTime)
-            ->sum('pre_deposit');
+            ->sum('deposit');
     }
 
     public function saleReturn()
