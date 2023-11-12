@@ -98,8 +98,7 @@ class SaleReturn extends Model  implements Auditable
             ]);
         }
 
-        $cashInHand = DailyCih::max('id');
-        $cashInHandBal = DailyCih::find($cashInHand);
+        
         if ($cashInHandBal) {
             $cashInHandBal->grand_total -= $request->grandtotal;
             $cashInHandBal->save();

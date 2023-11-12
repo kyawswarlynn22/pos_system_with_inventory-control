@@ -107,8 +107,6 @@ class CreditsaleDetails extends Model implements Auditable
             }
         }
 
-        $cashInHand = DailyCih::max('id');
-        $cashInHandBal = DailyCih::find($cashInHand);
         if ($cashInHandBal) {
             $cashInHandBal->grand_total += $request->deposit;
             $cashInHandBal->save();

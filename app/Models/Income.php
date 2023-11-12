@@ -95,8 +95,7 @@ class Income extends Model implements Auditable
             }
 
             $updateModel->update($updateData);
-            $cashInHand = DailyCih::max('id');
-            $cashInHandBal = DailyCih::find($cashInHand);
+
             if ($cashInHandBal) {
                 $cashInHandBal->grand_total += $request->amount;
                 $cashInHandBal->save();
