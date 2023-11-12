@@ -20,7 +20,7 @@
         $currentDateTime = \Carbon\Carbon::now($timezone);
         $currentDateFormatted = $currentDateTime->format('Y-m-d');
     @endphp
-    <form class=" float-right -mt-14" action="/saleClosing" method="post">
+    {{-- <form class=" float-right -mt-14" action="/saleClosing" method="post">
         @csrf
         <input type="text" class="" hidden name="grand_total" id="grandtotalamt">
         @if ($currentDateFormatted == $salecolse->crdate_only)
@@ -29,7 +29,7 @@
         @else
             <button class=" float-right bg-red-500 rounded-lg px-3 py-1">Balance Closing</button>
         @endif
-    </form>
+    </form> --}}
 
     <div class=" flex space-x-2 ">
 
