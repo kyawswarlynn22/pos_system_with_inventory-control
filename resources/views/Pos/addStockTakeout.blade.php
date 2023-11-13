@@ -748,7 +748,7 @@
         </script>
 
     </div>
-    <script src="{{ asset('js/datetime.js') }}" defer></script>
+    <script src="{{ asset('js/dateandtime.js') }}" defer></script>
 </body>
 </html>
 
