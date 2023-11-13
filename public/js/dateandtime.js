@@ -1,4 +1,7 @@
 // Get the current date and time
+function startTime() {
+  
+
 const today = new Date();
 
 // Get the hours, minutes, and seconds
@@ -19,11 +22,13 @@ const year = today.getFullYear();
 
 // Create a string to display the current date and time
 const amPm = hours < 12 ? "AM" : "PM";
-const time = hoursWithLeadingZero + ":" + minutesWithLeadingZero + " " + amPm;
+const time = hoursWithLeadingZero + ":" + minutesWithLeadingZero  + ":" + seconds + " " + amPm;
 const date = dayOfWeek + ", " + " " + today.getDate()+ " " + month + ", " + year;
 
 // Display the clock and date
 document.getElementById("clock").innerHTML = time + "<br>" + date;
+
+}
 
 // Set a timeout function to update the clock every second
 setInterval(function() {

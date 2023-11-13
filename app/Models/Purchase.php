@@ -73,13 +73,6 @@ class Purchase extends Model  implements Auditable
                 $purchaseDetails->save();
             }
         }
-
-        $cashInHand = DailyCih::max('id');
-        $cashInHandBal = DailyCih::find($cashInHand);
-        if ($cashInHandBal) {
-            $cashInHandBal->grand_total -= $request->grandtotal;
-            $cashInHandBal->save();
-        }
     }
 
     public function updatePurchaseDetail($request, $id)
@@ -90,13 +83,6 @@ class Purchase extends Model  implements Auditable
             $updateProductSockCount = $updateProductSockCountClass->deleteupdateSotckCount($id);
         }
         $updatePurchase = Purchase::find($id);
-
-        $cashInHand = DailyCih::max('id');
-        $cashInHandBal = DailyCih::find($cashInHand);
-        if ($cashInHandBal) {
-            $cashInHandBal->grand_total += $updatePurchase->grand_total;
-            $cashInHandBal->save();
-        }
         if ($updatePurchase) {
             $updatePurchase->update([
                 'sup_country' => $request->country,
@@ -122,11 +108,6 @@ class Purchase extends Model  implements Auditable
                 $purchaseDetails->price_per_unit = $price[$product];
                 $purchaseDetails->save();
             }
-        }
-
-        if ($cashInHandBal) {
-            $cashInHandBal->grand_total -= $request->grandtotal;
-            $cashInHandBal->save();
         }
     }
 }

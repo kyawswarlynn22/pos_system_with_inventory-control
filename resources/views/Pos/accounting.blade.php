@@ -123,7 +123,7 @@
                             Purchase
                         </th>
 
-                        <td id="pur" class="px-6 py-4 float-right">
+                        <td  class="px-6 py-4 float-right">
                             0
                         </td>
                     </tr>
@@ -199,7 +199,7 @@
 
 
     <script>
-        var purchasestring = document.getElementById("pur").innerText;
+       
         var cashstring = document.getElementById("cash").innerText;
         var depositstring = document.getElementById("deposit").innerText;
         var expensestring = document.getElementById("exp").innerText;
@@ -217,7 +217,7 @@
         var estimate = document.getElementById('estimate');
 
 
-        var purchase = parseInt(purchasestring);
+       
         var cash = parseInt(cashstring);
         var deposit = parseInt(depositstring);
         var expense = parseInt(expensestring);
@@ -232,7 +232,7 @@
  
 
 
-        var creditSubtotal = purchase + expense + salereturn;
+        var creditSubtotal =  expense + salereturn;
         var debitSubtotal = cash + deposit + income + paid ;
         var totalbal = debitSubtotal - creditSubtotal;
         grand_total_value.value = totalbal;
