@@ -65,7 +65,7 @@
             <p class="mt-2 p-2 text-2xl pl-5"> Cash In Hand</p>
             <div class="flex  p-2 pl-5  items-center  justify-between">
                 <p class="text-yellow-400 font-bold text-2xl ">
-                    {{ $income + $cash + $deposit + $paidCredit - $salereturn - $expense - $purchase }}
+                    {{ $income + $cash + $deposit + $paidCredit - $salereturn - $expense }}
                 </p>
                 <div class="h-12 bg-yellow-400 w-12 rounded-full flex justify-center items-center ">
                     <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
