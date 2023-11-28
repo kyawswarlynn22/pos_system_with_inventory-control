@@ -31,8 +31,8 @@ class Accounting extends Model
 
         $startTime = $currentDateFormatted . ' 00:00:00';
         $endTime = $currentDateFormatted . ' 23:59:59';
-        return $totalExpense = ExpenseModel::where('created_at', '>=', $startTime)
-            ->where('created_at', '<=', $endTime)
+        return $totalExpense = ExpenseModel::where('date', '>=', $startTime)
+            ->where('date', '<=', $endTime)
             ->sum('amount');
     }
 
