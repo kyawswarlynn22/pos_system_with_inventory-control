@@ -15,7 +15,7 @@ class ExpenseModel extends Model implements Auditable
 
     use \OwenIt\Auditing\Auditable;
 
-  
+    public $timestamps = false;
 
     protected $table = 'expenses';
 
@@ -64,7 +64,7 @@ class ExpenseModel extends Model implements Auditable
     {
         $date = $request->date;
 
-        return $expenseDate = ExpenseModel::whereDate('created_at', $date)
+        return $expenseDate = ExpenseModel::whereDate('date', $date)
             ->where('expense_categories_id','<>',4)
             ->get();
     }
@@ -73,7 +73,7 @@ class ExpenseModel extends Model implements Auditable
     {
         $date = $request->date;
 
-        return $expenseDate = ExpenseModel::whereDate('created_at', $date)
+        return $expenseDate = ExpenseModel::whereDate('date', $date)
             ->where('expense_categories_id',4)
             ->get();
     }
