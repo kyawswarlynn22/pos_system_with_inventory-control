@@ -5,6 +5,7 @@ use App\Http\Controllers\adminExpenseController;
 use App\Http\Controllers\CashsaleController;
 use App\Http\Controllers\CashThbController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ComplaintsController;
 use App\Http\Controllers\CreditsaleController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DailyCihController;
@@ -157,6 +158,6 @@ Route::middleware('loginCheck')->group(function () {
 
     Route::resource('creditsale', CreditsaleController::class);
 
-
+    Route::resource('complaint', ComplaintsController::class);
 
 });

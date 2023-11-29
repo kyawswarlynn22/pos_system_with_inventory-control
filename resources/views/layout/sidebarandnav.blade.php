@@ -523,6 +523,16 @@
                         <span class="ml-3">Logout</span>
                     </a>
                 </li>
+                <li>
+                    <a href="/complaint/create"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#6b7280"
+                                d="m17 8l-1.4 1.4l1.6 1.6H9v2h8.2l-1.6 1.6L17 16l4-4l-4-4M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5Z" />
+                        </svg>
+                        <span class="ml-3">Complaint</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </aside>
