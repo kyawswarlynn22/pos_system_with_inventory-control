@@ -23,6 +23,7 @@ class CreditsaleDetails extends Model implements Auditable
         $takeoutDetails = CreditsaleDetails::join('credit_sale', 'credit_sale_id', '=', 'credit_sale.id')
             ->join('products', 'products_id', '=', 'products.id')
             ->where('credit_sale_id', $id)
+            ->where('credit_sale.sent',1)
             ->select('products.id', DB::raw('SUM(credit_sale_details.quantity) as total_product_quantity'))
             ->groupBy('products.id')
             ->get();
@@ -87,6 +88,7 @@ class CreditsaleDetails extends Model implements Auditable
                 'grand_total' => $request->grandtotal,
                 'remark' => $request->remark,
                 'paid' => $request->paid,
+                'sent' => $request->status,
             ]);
         }
 
@@ -120,6 +122,7 @@ class CreditsaleDetails extends Model implements Auditable
         $cashSaleDetils = CreditsaleDetails::join('credit_sale', 'credit_sale_id', '=', 'credit_sale.id')
             ->join('products', 'products_id', '=', 'products.id')
             ->where('credit_sale_id', $id)
+            ->where('credit_sale.sent',1)
             ->select('products.id', DB::raw('SUM(credit_sale_details.quantity) as total_product_quantity'))
             ->groupBy('products.id')
             ->get();

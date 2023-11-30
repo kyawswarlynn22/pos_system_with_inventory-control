@@ -108,6 +108,7 @@ class depositsaleController extends Controller
         }
         $updateDepositSale = $updateDepositSaleClass->updateDepositSaleDetail($request, $id);
         if ($getsendornot->paid == 1 && $request->status == 1) {
+          
         } else {
             $updateDepositSale = $updateStockCountClass->updateSotckCount($id);
         }

@@ -16,7 +16,7 @@ class Creditsale extends Model implements Auditable
 
     protected $table = 'credit_sale';
 
-    protected $fillable = ['customers_id', 'discount','deposit_paid','credit_paid', 'grand_total', 'paid', 'remark', 'del_flg'];
+    protected $fillable = ['customers_id', 'discount','deposit_paid','credit_paid', 'grand_total', 'paid','sent', 'remark', 'del_flg'];
 
     public function lastId()
     {
@@ -35,6 +35,7 @@ class Creditsale extends Model implements Auditable
         $takeout->discount = $request->discount;
         $takeout->grand_total = $request->grandtotal;
         $takeout->remark = $request->remark;
+        $takeout->sent = $request->status;
         $takeout->save();
 
         $lastId = Creditsale::max('id');
@@ -56,9 +57,14 @@ class Creditsale extends Model implements Auditable
     public function getCreditData()
     {
         return $retailsSale = Creditsale::join('customers', 'customers.id', 'credit_sale.customers_id')
-            ->select('customers.cus_name','discount', 'grand_total','paid', 'credit_sale.id',DB::raw('DATE(credit_sale.created_at) as date_only'))
+            ->select('customers.cus_name','discount', 'grand_total','paid','sent', 'credit_sale.id',DB::raw('DATE(credit_sale.created_at) as date_only'))
             ->where('credit_sale.del_flg', 0)
             ->orderBy('credit_sale.id', 'desc')->paginate(15);
+    }
+
+    public function getsendornot($id)
+    {
+        return Creditsale::select('sent')->where('id', $id)->first();
     }
 
     public function getCreditDetails($id)
@@ -77,6 +83,12 @@ class Creditsale extends Model implements Auditable
     public function creditDel($id)
     {
         $updateCashsale = Creditsale::find($id);
+        $getsend = Creditsale::select('sent')->where('id', $id)->first();
+        if ($getsend->sent == 1) {
+            // dd("plus mal");
+            $updateProductStockclass = new CreditsaleDetails();
+        $updateProductStock = $updateProductStockclass->delUpdateSotck($id);
+        }
 
         $cashInHand = DailyCih::max('id');
         $cashInHandBal = DailyCih::find($cashInHand);
@@ -84,9 +96,6 @@ class Creditsale extends Model implements Auditable
             $cashInHandBal->grand_total -= $updateCashsale->deposit_paid;
             $cashInHandBal->save();
         }
-
-        $updateProductStockclass = new CreditsaleDetails();
-        $updateProductStock = $updateProductStockclass->delUpdateSotck($id);
 
         $deleteCashSale = Creditsale::find($id);
         $deleteCashSale->delete();

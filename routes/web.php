@@ -158,6 +158,6 @@ Route::middleware('loginCheck')->group(function () {
 
     Route::resource('creditsale', CreditsaleController::class);
 
-    Route::resource('complaint', ComplaintsController::class);
+   
 
 });

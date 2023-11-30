@@ -41,6 +41,9 @@
                     <th scope="col" class="px-6 text-center  py-3">
                         Payment
                     </th>
+                    <th scope="col" class="px-6 text-center  py-3">
+                       Delivery
+                    </th>
                     <th scope="col" class="px-6 py-3 text-center  rounded-r-lg">
                         Action
                     </th>
@@ -70,6 +73,13 @@
                            <span class=" text-green-500">Paid</span>
                            @endif
                         </td>
+                        <td class="px-6 text-center  py-4">
+                            @if ($item->sent == 0)
+                                <span class=" text-red-500">Undelivery</span>
+                            @else
+                            <span class=" text-green-500">Delivered</span>
+                            @endif
+                         </td>
                         <td class="px-6 py-4 flex justify-center space-x-2 ">
                             <a href="/creditsale/{{ $item->id }}">
                                 <svg width="24" height="24" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">

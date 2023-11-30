@@ -598,7 +598,7 @@
                         <span>Invoice No: {{ $lastId + 1 }}</span>
                     </div>
                 </div>
-                <div class="flex w-full justify-around items-center space-x-3 py-5">
+                <div class="flex w-1/2 justify-around items-center space-x-3 py-5">
                     <div class="mb-6 w-full">
                         <label for="customer"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Customer Name
@@ -607,6 +607,16 @@
                         <select name="customer" class=" w-64 h-10" id="customerList"></select>
 
                     </div>
+                    <div class="mb-6 w-full">
+                        <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Sent
+                        </label>
+                        <select name="status" id="status"
+                            class="bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+    
                 </div>
                 <div class="flex space-x-3  w-8/12 justify-items-center items-center">
                     <div class="mb-6 w-full">
