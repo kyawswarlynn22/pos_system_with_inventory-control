@@ -60,16 +60,16 @@ class CreditsaleDetails extends Model implements Auditable
         $serial = $request->input('serial', []);
 
 
-        for ($product = 0; $product < count($products); $product++) {
-            if ($products[$product] != '') {
-                $cashsaleDetails = new CreditsaleDetails();
-                $checkstock = Product::where('id', $products[$product])->where('quantity', '<', $quantity[$product])->get();
-                if ($checkstock->count() !== 0) {
-                    dd($id);
-                    return back()->with('fail', 'Stock not enough');
-                }
-            }
-        };
+        // for ($product = 0; $product < count($products); $product++) {
+        //     if ($products[$product] != '') {
+        //         $cashsaleDetails = new CreditsaleDetails();
+        //         $checkstock = Product::where('id', $products[$product])->where('quantity', '<', $quantity[$product])->get();
+        //         if ($checkstock->count() !== 0) {
+        //             return back()->with('fail', 'Stock not enough');
+        //             return redirect('/product/create')->withSuccess('Added Product Succefully');
+        //         }
+        //     }
+        // };
 
         $updateCashsale = Creditsale::find($id);
        
