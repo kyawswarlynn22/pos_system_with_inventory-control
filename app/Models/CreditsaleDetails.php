@@ -65,6 +65,7 @@ class CreditsaleDetails extends Model implements Auditable
                 $cashsaleDetails = new CreditsaleDetails();
                 $checkstock = Product::where('id', $products[$product])->where('quantity', '<', $quantity[$product])->get();
                 if ($checkstock->count() !== 0) {
+                    dd($id);
                     return back()->with('fail', 'Stock not enough');
                 }
             }
@@ -78,7 +79,7 @@ class CreditsaleDetails extends Model implements Auditable
             $cashInHandBal->grand_total -= $updateCashsale->deposit_paid;
             $cashInHandBal->save();
         }
-        dd($id);
+     
         if ($updateCashsale) {
             
             $updateCashsale->update([
