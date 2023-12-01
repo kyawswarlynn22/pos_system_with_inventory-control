@@ -71,16 +71,16 @@ class CreditsaleDetails extends Model implements Auditable
         };
 
         $updateCashsale = Creditsale::find($id);
-
+       
         $cashInHand = DailyCih::max('id');
         $cashInHandBal = DailyCih::find($cashInHand);
         if ($cashInHandBal) {
             $cashInHandBal->grand_total -= $updateCashsale->deposit_paid;
             $cashInHandBal->save();
         }
-
+        dd($id);
         if ($updateCashsale) {
-            dd($request);
+            
             $updateCashsale->update([
                 'customers_id' => $request->customer,
                 'discount' => $request->discount,
