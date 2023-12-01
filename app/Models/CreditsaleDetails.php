@@ -53,7 +53,7 @@ class CreditsaleDetails extends Model implements Auditable
 
     public function updateCreditDetail($request, $id)
     {
-        dd($request);
+       
         $products = $request->input('productsid', []);
         $quantity = $request->input('quantities', []);
         $price = $request->input('price', []);
@@ -89,6 +89,7 @@ class CreditsaleDetails extends Model implements Auditable
                 'remark' => $request->remark,
                 'paid' => $request->paid,
                 'sent' => $request->status,
+                dd($request),
             ]);
         }
 
