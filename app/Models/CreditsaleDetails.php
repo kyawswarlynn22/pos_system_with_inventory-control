@@ -80,6 +80,7 @@ class CreditsaleDetails extends Model implements Auditable
         }
 
         if ($updateCashsale) {
+            dd($request);
             $updateCashsale->update([
                 'customers_id' => $request->customer,
                 'discount' => $request->discount,
@@ -89,7 +90,7 @@ class CreditsaleDetails extends Model implements Auditable
                 'remark' => $request->remark,
                 'paid' => $request->paid,
                 'sent' => $request->status,
-                dd($request),
+                
             ]);
         }
 
