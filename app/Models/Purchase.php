@@ -21,7 +21,12 @@ class Purchase extends Model  implements Auditable
 
     public function getPurchaseData()
     {
-        return $purchases = Purchase::orderBy('id', 'desc')->paginate(15);
+        return $purchases = Purchase::orderBy('id', 'desc')->where('ship_status',1)->paginate(15);
+    }
+
+    public function getPurchaseDataPending()
+    {
+        return $purchases = Purchase::orderBy('id', 'desc')->where('ship_status',0)->paginate(15);
     }
 
     public function getPurchaseProduct()
@@ -29,6 +34,16 @@ class Purchase extends Model  implements Auditable
         return $purchase = PurchaseDetails::join('purchases','purchases.id','=','purchase_details.purchase_id')
         ->join('products','products.id','=','purchase_details.product_id')
         ->select('products.*','purchase_details.*','purchases.*',DB::raw('DATE(purchases.p_date) as date_only'))
+        ->where('ship_status',1)
+        ->orderBy('purchase_details.id', 'desc')->paginate(15);
+    }
+
+    public function getPurchaseProductPending()
+    {
+        return $purchase = PurchaseDetails::join('purchases','purchases.id','=','purchase_details.purchase_id')
+        ->join('products','products.id','=','purchase_details.product_id')
+        ->select('products.*','purchase_details.*','purchases.*',DB::raw('DATE(purchases.p_date) as date_only'))
+        ->where('ship_status',0)
         ->orderBy('purchase_details.id', 'desc')->paginate(15);
     }
 

@@ -19,10 +19,14 @@ class PurchaseController extends Controller
         $getPurchaseDataClass = new Purchase();
         $getPurchaseData = $getPurchaseDataClass->getPurchaseData();
         $getPurchaseProducts = $getPurchaseDataClass->getPurchaseProduct();
-       
+        $getPurchaseDataPending = $getPurchaseDataClass->getPurchaseDataPending();
+        $getPurchaseProductsPending = $getPurchaseDataClass->getPurchaseProductPending();
+
         return view('Pos.purchaseList', [
             'purchaseData' => $getPurchaseData,
             'purchaseList' => $getPurchaseProducts,
+            'purchaseDataPending' =>$getPurchaseDataPending,
+            'purchaseListPending' => $getPurchaseProductsPending,
         ]);
     }
 
