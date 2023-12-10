@@ -41,7 +41,7 @@ class DamageController extends Controller
     {
         $storeproductClass = new Damage();
         $storeproduct = $storeproductClass->storependingList($request);
-        return redirect('/warehouseadjustment');
+        return redirect('/damageproduct');
     }
 
     /**

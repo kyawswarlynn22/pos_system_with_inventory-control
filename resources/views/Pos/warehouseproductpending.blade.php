@@ -64,7 +64,7 @@
                                     Accept
                                 </button>
                         </form>
-                        <form action="/warehouseadjustment/{{ $product->id }}" method="post">
+                        <form action="/usageproduct/{{ $product->id }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button class="px-5 rounded-md py-1 bg-red-500">
@@ -143,7 +143,7 @@
                         <td class="px-6 text-center py-4">
                             {{ $product->stock }}
                         </td>
-                        <form action="/usageproduct/{{ $product->w_product_id }}" method="POST">
+                        <form action="/damageproduct/{{ $product->w_product_id }}" method="POST">
                             @csrf
                             @method('PUT')
                             <input type="text" name="stock" value="{{ $product->stock }}" hidden>

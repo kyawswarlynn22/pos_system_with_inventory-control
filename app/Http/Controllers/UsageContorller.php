@@ -45,6 +45,7 @@ class UsageContorller extends Controller
         $storeproductClass = new Usage();
         $storeproduct = $storeproductClass->storependingList($request);
         return redirect('/usageproduct');
+        
     }
 
     /**
