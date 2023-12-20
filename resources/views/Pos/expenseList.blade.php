@@ -70,7 +70,7 @@
                             class="px-6 text py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{ $item->e_c_name }}
                         </th>
-                        <td class="px-6 text-center  py-4">
+                        <td class="px-6 text-centers font-noto  py-4">
                             {{ $item->description }}
 
                         </td>
@@ -178,7 +178,7 @@
                             class="px-6 text py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{ $item->e_c_name }}
                         </th>
-                        <td class="px-6 text-center  py-4">
+                        <td class="px-6 text-center font-noto  py-4">
                             {{ $item->description }}
 
                         </td>

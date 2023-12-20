@@ -12,7 +12,7 @@
                     <img class=" rounded-md object-cover max-w-lg mx-auto" src="{{ $expenseDetail->photo }}" alt="Nike Air">
                 </div>
                 <div class=" flex flex-col ml-20 w-full space-y-10 justify-start">
-                    <span class=" my-3">Description -> {{ $expenseDetail->description }}</span>
+                    <span class=" my-3 font-noto">Description -> {{ $expenseDetail->description }}</span>
                     <span class=" my-3">Category -> {{ $expenseDetail->e_c_name }}</span>
                     <span class=" my-3">Amount -> {{ $expenseDetail->amount }}Ks</span>
                 </div>

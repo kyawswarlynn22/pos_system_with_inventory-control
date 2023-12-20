@@ -6,7 +6,11 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        noto: ["Noto Sans Myanmar", "sans-serif"],
+    },
+    },
   },
   plugins: [],
 }

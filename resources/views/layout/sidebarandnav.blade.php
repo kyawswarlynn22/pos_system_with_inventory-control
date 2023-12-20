@@ -18,9 +18,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js" defer></script>
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/31104486ca.js" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
- 
+
 
 
     <title>@yield('title')</title>
@@ -139,7 +142,7 @@
                         <span class="ml-3">Serial</span>
                     </a>
                 </li>
-                           <li>
+                <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                         aria-controls="purchase" data-collapse-toggle="purchase">
@@ -271,7 +274,8 @@
                         </li>
                         <li>
                             <a href="/todaypaid"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Today Paid Credit
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Today
+                                Paid Credit
                                 Sale List</a>
                         </li>
                     </ul>
@@ -314,8 +318,11 @@
                         aria-controls="stocktakeout" data-collapse-toggle="stocktakeout">
                         <svg width="24" height="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                             <g fill="#6b7280">
-                                <path d="M27.707 7.707a1 1 0 0 0-1.414-1.414L24 8.586l-2.293-2.293a1 1 0 1 0-1.414 1.414L22.586 10l-2.293 2.293a1 1 0 0 0 1.414 1.414L24 11.414l2.293 2.293a1 1 0 1 0 1.414-1.415L25.414 10l2.293-2.293Zm6.242 24.477a1 1 0 0 1-.633 1.265l-4.5 1.5a1 1 0 0 1-.632-1.898l4.5-1.5a1 1 0 0 1 1.265.633Z"/>
-                                <path fill-rule="evenodd" d="M6.684 26.449L10 27.554V36a1 1 0 0 0 .673.945l12.992 4.497a.99.99 0 0 0 .637.011l.014-.004l.015-.005l12.996-4.499A1 1 0 0 0 38 36v-8.446l3.316-1.105a1 1 0 0 0 .465-1.574l-4-5a1 1 0 0 0-.456-.32l-12.998-4.5a1 1 0 0 0-.654 0l-12.998 4.5a.999.999 0 0 0-.456.32l-4 5a1 1 0 0 0 .465 1.574Zm14.635 4.124l1.681-2.4v10.923l-11-3.808V28.22l8.184 2.728a1 1 0 0 0 1.135-.376ZM14.057 20.5L24 23.942l9.943-3.442L24 17.058L14.057 20.5Zm12.624 10.073L25 28.174v10.923l11-3.808V28.22l-8.184 2.728a1 1 0 0 1-1.135-.376ZM11.34 21.676l-2.663 3.329l5.511 1.837l5.92 1.973l2.313-3.303l-.135-.047l-10.946-3.79Zm27.983 3.329l-2.663-3.33l-11.081 3.837l2.313 3.303l11.431-3.81Z" clip-rule="evenodd"/>
+                                <path
+                                    d="M27.707 7.707a1 1 0 0 0-1.414-1.414L24 8.586l-2.293-2.293a1 1 0 1 0-1.414 1.414L22.586 10l-2.293 2.293a1 1 0 0 0 1.414 1.414L24 11.414l2.293 2.293a1 1 0 1 0 1.414-1.415L25.414 10l2.293-2.293Zm6.242 24.477a1 1 0 0 1-.633 1.265l-4.5 1.5a1 1 0 0 1-.632-1.898l4.5-1.5a1 1 0 0 1 1.265.633Z" />
+                                <path fill-rule="evenodd"
+                                    d="M6.684 26.449L10 27.554V36a1 1 0 0 0 .673.945l12.992 4.497a.99.99 0 0 0 .637.011l.014-.004l.015-.005l12.996-4.499A1 1 0 0 0 38 36v-8.446l3.316-1.105a1 1 0 0 0 .465-1.574l-4-5a1 1 0 0 0-.456-.32l-12.998-4.5a1 1 0 0 0-.654 0l-12.998 4.5a.999.999 0 0 0-.456.32l-4 5a1 1 0 0 0 .465 1.574Zm14.635 4.124l1.681-2.4v10.923l-11-3.808V28.22l8.184 2.728a1 1 0 0 0 1.135-.376ZM14.057 20.5L24 23.942l9.943-3.442L24 17.058L14.057 20.5Zm12.624 10.073L25 28.174v10.923l11-3.808V28.22l-8.184 2.728a1 1 0 0 1-1.135-.376ZM11.34 21.676l-2.663 3.329l5.511 1.837l5.92 1.973l2.313-3.303l-.135-.047l-10.946-3.79Zm27.983 3.329l-2.663-3.33l-11.081 3.837l2.313 3.303l11.431-3.81Z"
+                                    clip-rule="evenodd" />
                             </g>
                         </svg>
                         <span class="flex-1 ml-3 text-left whitespace-nowrap">Stock Takeout</span>
@@ -328,11 +335,13 @@
                     <ul id="stocktakeout" class="hidden py-2 space-y-2">
                         <li>
                             <a href="/stocktakeout/create"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Stock Takeout</a>
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Stock
+                                Takeout</a>
                         </li>
                         <li>
                             <a href="/stocktakeout"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Stock Takeout List</a>
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Stock
+                                Takeout List</a>
                         </li>
                     </ul>
                 </li>
@@ -341,9 +350,12 @@
                         class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                         aria-controls="usage" data-collapse-toggle="usage">
                         <svg width="24" height="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="21.5" fill="none" stroke="#6b7280" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path fill="none" stroke="#6b7280" stroke-linecap="round" stroke-linejoin="round" d="m3.307 29.834l14.398-14.7l-4.668-4.572h12.95v12.684l-4.41-4.318L5.645 35.194"/>
-                            <path fill="none" stroke="#6b7280" stroke-linecap="round" stroke-linejoin="round" d="M42.715 13.416L27.047 29.411l-4.729-4.618v12.989h13.26l-4.465-4.374l13.858-14.147"/>
+                            <circle cx="24" cy="24" r="21.5" fill="none" stroke="#6b7280"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path fill="none" stroke="#6b7280" stroke-linecap="round" stroke-linejoin="round"
+                                d="m3.307 29.834l14.398-14.7l-4.668-4.572h12.95v12.684l-4.41-4.318L5.645 35.194" />
+                            <path fill="none" stroke="#6b7280" stroke-linecap="round" stroke-linejoin="round"
+                                d="M42.715 13.416L27.047 29.411l-4.729-4.618v12.989h13.26l-4.465-4.374l13.858-14.147" />
                         </svg>
                         <span class="flex-1 ml-3 text-left whitespace-nowrap">Usage and Damage</span>
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -355,15 +367,18 @@
                     <ul id="usage" class="hidden py-2 space-y-2">
                         <li>
                             <a href="/usageproduct/create"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add Usage and Damage</a>
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add
+                                Usage and Damage</a>
                         </li>
                         <li>
                             <a href="/damageproduct"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Usage and Damage Pending List</a>
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Usage
+                                and Damage Pending List</a>
                         </li>
                         <li>
                             <a href="/usageproduct"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Usage and Damage
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Usage
+                                and Damage
                                 List</a>
                         </li>
                     </ul>
@@ -410,16 +425,18 @@
                     </ul>
                 </li>
                 @if ($userRole == 0)
-                <li>
-                    <a href="/cashthb/create"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#6b7280" d="M16.1 11.6c.6-.7.9-1.6.9-2.6c0-1.9-1.3-3.4-3-3.9L13 5V3h-2v2H7v14h4v2h2v-2h1c2.2 0 4-1.8 4-4c0-1.5-.8-2.7-1.9-3.4M15 9c0 1.1-.9 2-2 2V7c1.1 0 2 .9 2 2M9 7h2v4H9V7m0 10v-4h2v4H9m5 0h-1v-4h1c1.1 0 2 .9 2 2s-.9 2-2 2Z"/>
-                        </svg>
-                        <span class="ml-3">THB Addjustment</span>
-                    </a>
-                </li>
-            @endif
+                    <li>
+                        <a href="/cashthb/create"
+                            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <svg width="24" height="24" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#6b7280"
+                                    d="M16.1 11.6c.6-.7.9-1.6.9-2.6c0-1.9-1.3-3.4-3-3.9L13 5V3h-2v2H7v14h4v2h2v-2h1c2.2 0 4-1.8 4-4c0-1.5-.8-2.7-1.9-3.4M15 9c0 1.1-.9 2-2 2V7c1.1 0 2 .9 2 2M9 7h2v4H9V7m0 10v-4h2v4H9m5 0h-1v-4h1c1.1 0 2 .9 2 2s-.9 2-2 2Z" />
+                            </svg>
+                            <span class="ml-3">THB Addjustment</span>
+                        </a>
+                    </li>
+                @endif
                 @if ($userRole == 0)
                     <li>
                         <a href="/account"
@@ -523,7 +540,7 @@
                         <span class="ml-3">Logout</span>
                     </a>
                 </li>
-               
+
             </ul>
         </div>
     </aside>
@@ -534,11 +551,11 @@
             <div class="text-center">
                 <button
                     class="text-white bg-green-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                    type="button" data-drawer-target="drawer-navigation"
-                    data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+                    type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
+                    aria-controls="drawer-navigation">
                     Main Menu
                 </button>
-                
+
             </div>
             <div class=" text-white font-medium" id="clock"></div>
             <div class="flex md:order-2">
@@ -579,9 +596,9 @@
                 </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                            <img src="{{ $logo }}" class="h-10 mr-3" alt="SKS Logo">
-                            <span
-                                class="self-center text-2xl font-semibold whitespace-nowrap text-white dark:text-white">{{ $business_name }}</span>
+                <img src="{{ $logo }}" class="h-10 mr-3" alt="SKS Logo">
+                <span
+                    class="self-center text-2xl font-semibold whitespace-nowrap text-white dark:text-white">{{ $business_name }}</span>
             </div>
         </div>
     </nav>
